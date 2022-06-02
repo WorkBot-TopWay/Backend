@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopWay.API", "TopWay.API\TopWay.API.csproj", "{406AFD69-668E-4C30-A4E8-372DB3EC1DEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopWay.API.Tests", "TopWay.API.Tests\TopWay.API.Tests.csproj", "{0903FC84-D834-4DEA-998E-F567F9D6020A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{406AFD69-668E-4C30-A4E8-372DB3EC1DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{406AFD69-668E-4C30-A4E8-372DB3EC1DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{406AFD69-668E-4C30-A4E8-372DB3EC1DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0903FC84-D834-4DEA-998E-F567F9D6020A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0903FC84-D834-4DEA-998E-F567F9D6020A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0903FC84-D834-4DEA-998E-F567F9D6020A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0903FC84-D834-4DEA-998E-F567F9D6020A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
