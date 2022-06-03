@@ -9,5 +9,7 @@ public class ModelToResourceProfile : Profile
     public ModelToResourceProfile()
     {
         CreateMap<Scaler, ScalerResource>();
+        CreateMap<ClimbingGym, ClimbingGymResource>();
+        CreateMap<Notification, NotificationResource>();
     }
 }

@@ -29,6 +29,10 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.AddScoped<IScalerRepository, ScalerRepository>();
 builder.Services.AddScoped<IScalerService, ScalerService>();
+builder.Services.AddScoped<IClimbingGymRepository, ClimbingGymRepository>();
+builder.Services.AddScoped<IClimbingGymService, ClimbingGymService>();
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

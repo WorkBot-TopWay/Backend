@@ -25,6 +25,7 @@ public class ScalerRepository : BaseRepository, IScalerRepository
     {
         return (await _context.Scalers.FindAsync(id))!;
     }
+    
 
     public void Update(Scaler category)
     {
