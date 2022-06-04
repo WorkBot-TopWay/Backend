@@ -18,6 +18,7 @@ public class AppDbContext : DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<CategoryGym> CategoriesGyms { get; set; }
     public DbSet<Images> Images { get; set; }
+    public DbSet<CompetitionGym> CompetitionGyms { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -71,7 +72,12 @@ public class AppDbContext : DbContext
             .HasMany(p => p.Images)
             .WithOne(p => p.ClimbingGym)
             .HasForeignKey(p => p.ClimbingGymId);
-        
+
+        builder.Entity<ClimbingGym>()
+            .HasMany(p => p.CompetitionGyms)
+            .WithOne(p => p.ClimbingGym)
+            .HasForeignKey(p => p.ClimberGymId);
+
         // Notifications entity
         builder.Entity<Notification>().ToTable("Notifications");
         builder.Entity<Notification>().HasKey(p => p.Id);
@@ -133,8 +139,25 @@ public class AppDbContext : DbContext
             .WithMany(p => p.Images)
             .HasForeignKey(p => p.ClimbingGymId);
 
+        // CompetitionGym entity
+        builder.Entity<CompetitionGym>().ToTable("CompetitionGym");
+        builder.Entity<CompetitionGym>().HasKey(p => p.Id);
+        builder.Entity<CompetitionGym>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<CompetitionGym>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+        builder.Entity<CompetitionGym>().Property(p => p.Price).IsRequired();
+        builder.Entity<CompetitionGym>().Property(p => p.Date).IsRequired();
+        builder.Entity<CompetitionGym>().Property(p => p.ClimberGymId).IsRequired();
+        builder.Entity<CompetitionGym>().Property(p => p.type).IsRequired().HasMaxLength(50);
+
+        // relationships
+
+        builder.Entity<CompetitionGym>()
+            .HasOne(p => p.ClimbingGym)
+            .WithMany(p => p.CompetitionGyms)
+            .HasForeignKey(p => p.ClimberGymId);
+
         // Apply Naming Conventions
-        
+
         builder.UseSnakeCaseNamingConvention();
         
     }
