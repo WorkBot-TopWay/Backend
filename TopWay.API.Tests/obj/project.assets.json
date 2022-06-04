@@ -6853,11 +6853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Backend\\TopWay.API\\TopWay.API.Tests\\TopWay.API.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Data\\Backend\\TopWay.API.Tests\\TopWay.API.Tests.csproj",
       "projectName": "TopWay.API.Tests",
-      "projectPath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Backend\\TopWay.API\\TopWay.API.Tests\\TopWay.API.Tests.csproj",
+      "projectPath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Data\\Backend\\TopWay.API.Tests\\TopWay.API.Tests.csproj",
       "packagesPath": "C:\\Users\\Sho Lee\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Backend\\TopWay.API\\TopWay.API.Tests\\obj\\",
+      "outputPath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Data\\Backend\\TopWay.API.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

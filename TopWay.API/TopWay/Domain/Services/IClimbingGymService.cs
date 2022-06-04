@@ -7,6 +7,7 @@ public interface IClimbingGymService
 {
     Task<IEnumerable<ClimbingGym>> ListAsync();
     Task<ClimbingGym> FindByIdAsync(int id);
+    Task<ClimbingGym> FindByNameAsync(string name);
     Task<ClimbingGymResponse> SaveAsync(ClimbingGym climbingGym);
     Task<ClimbingGymResponse> UpdateAsync(int id, ClimbingGym climbingGym);
     Task<ClimbingGymResponse> DeleteAsync(int id);

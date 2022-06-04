@@ -27,6 +27,18 @@ public class ClimbingGymController : ControllerBase
         return resources;
     }
     
+    [HttpGet("findByName/{name}")]
+    public async Task<IActionResult> GetByNameAsync(string name)
+    {
+        var climbingGym = await _climbingGymService.FindByNameAsync(name);
+        if (climbingGym == null)
+        {
+            return NotFound();
+        }
+        var resource = _mapper.Map<ClimbingGym, ClimbingGymResource>(climbingGym);
+        return Ok(resource);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAsync(int id)
     {
@@ -38,7 +50,7 @@ public class ClimbingGymController : ControllerBase
         var resource = _mapper.Map<ClimbingGym, ClimbingGymResource>(climbingGym);
         return Ok(resource);
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] SaveClimbingGymResource resource)
     {

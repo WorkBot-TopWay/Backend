@@ -26,6 +26,13 @@ public class ClimbingGymRepository : BaseRepository, IClimbingGymRepository
         return (await _context.ClimbingGyms.FindAsync(id))!;
     }
 
+    public async Task<ClimbingGym> FindByNameAsync(string name)
+    {
+        return (await _context.ClimbingGyms
+            .Where(p=>p.Name == name)
+            .FirstOrDefaultAsync())!;
+    }
+
     public void Update(ClimbingGym climbingGym)
     {
         _context.ClimbingGyms.Update(climbingGym);

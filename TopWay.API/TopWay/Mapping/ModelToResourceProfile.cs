@@ -11,5 +11,7 @@ public class ModelToResourceProfile : Profile
         CreateMap<Scaler, ScalerResource>();
         CreateMap<ClimbingGym, ClimbingGymResource>();
         CreateMap<Notification, NotificationResource>();
+        CreateMap<Category, CategoryResource>();
+        CreateMap<CategoryGym, CategoryGymResource>();
     }
 }

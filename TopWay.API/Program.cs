@@ -33,6 +33,10 @@ builder.Services.AddScoped<IClimbingGymRepository, ClimbingGymRepository>();
 builder.Services.AddScoped<IClimbingGymService, ClimbingGymService>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICategoryGymRepository, CategoryGymRepository>();
+builder.Services.AddScoped<ICategoryGymService, CategoryGymService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

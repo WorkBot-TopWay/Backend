@@ -26,6 +26,11 @@ public class ClimbingGymService : IClimbingGymService
         return await _climbingGymRepository.FindByIdAsync(id);
     }
 
+    public async Task<ClimbingGym> FindByNameAsync(string name)
+    {
+        return await _climbingGymRepository.FindByNameAsync(name);
+    }
+
     public async Task<ClimbingGymResponse> SaveAsync(ClimbingGym climbingGym)
     {
         climbingGym.type = "ClimbingGym";

@@ -19,7 +19,7 @@ public class NotificationController :ControllerBase
         _mapper = mapper;
     }
     
-    [HttpGet("{scalerId}/ByScalerId")]
+    [HttpGet("findByScalerId/{scalerId}")]
     public async Task<IEnumerable<NotificationResource>> GetAllByScalerId(int scalerId)
     {
         var notifications = await _notificationService.FindByScalerIdAsync(scalerId);
