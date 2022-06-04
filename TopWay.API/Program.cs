@@ -37,6 +37,8 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICategoryGymRepository, CategoryGymRepository>();
 builder.Services.AddScoped<ICategoryGymService, CategoryGymService>();
+builder.Services.AddScoped<IImagesRepository, ImagesRepository>();
+builder.Services.AddScoped<IImagesService, ImagesService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

@@ -17,6 +17,7 @@ public class AppDbContext : DbContext
     public DbSet<Notification> Notifications { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<CategoryGym> CategoriesGyms { get; set; }
+    public DbSet<Images> Images { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -66,6 +67,11 @@ public class AppDbContext : DbContext
             .WithOne(p => p.ClimbingGym)
             .HasForeignKey(p => p.ClimbingGymId);
         
+        builder.Entity<ClimbingGym>()
+            .HasMany(p => p.Images)
+            .WithOne(p => p.ClimbingGym)
+            .HasForeignKey(p => p.ClimbingGymId);
+        
         // Notifications entity
         builder.Entity<Notification>().ToTable("Notifications");
         builder.Entity<Notification>().HasKey(p => p.Id);
@@ -112,6 +118,20 @@ public class AppDbContext : DbContext
             .WithMany(p => p.CategoryGym)
             .HasForeignKey(p => p.CategoryId);
         
+        // Images entity
+        builder.Entity<Images>().ToTable("Images");
+        builder.Entity<Images>().HasKey(p => p.Id);
+        builder.Entity<Images>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Images>().Property(p => p.ImageUrl).IsRequired().HasMaxLength(500);
+        builder.Entity<Images>().Property(p => p.ClimbingGymId).IsRequired();
+        builder.Entity<Images>().Property(p => p.Alt).IsRequired().HasMaxLength(100);
+        
+        // relationships
+        
+        builder.Entity<Images>()
+            .HasOne(p => p.ClimbingGym)
+            .WithMany(p => p.Images)
+            .HasForeignKey(p => p.ClimbingGymId);
 
         // Apply Naming Conventions
         

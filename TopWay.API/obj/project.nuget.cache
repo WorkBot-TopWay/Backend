@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/9Mtoe0ssA3FMKKj56RVOWs+aaRAdWeCql2oy8xQyTB05V3njF220G/bQABgiNNC8i3hWweS3LF59L+XPFKOjg==",
+  "dgSpecHash": "1eXd6UGhto1zHEoQ0wUtOWwoG4w9Ys3N+N5XRGJRfTuvfGsVb6Pjy0UJCTOZTc2qa2fV9rnU7MVhRzonb2RHPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Data\\Backend\\TopWay.API\\TopWay.API.csproj",
+  "projectFilePath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Backend\\Backend\\TopWay.API\\TopWay.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sho Lee\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

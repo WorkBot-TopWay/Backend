@@ -13,5 +13,6 @@ public class ResourceToModelProfile : Profile
         CreateMap<SaveNotificationResource, Notification>();
         CreateMap<SaveCategoryResource, Category>();
         CreateMap<SaveCategoryGymResource, CategoryGym>();
+        CreateMap<SaveImagesResource, Images>();
     }
 }
