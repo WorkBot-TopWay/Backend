@@ -13,5 +13,6 @@ public class ModelToResourceProfile : Profile
         CreateMap<Notification, NotificationResource>();
         CreateMap<Category, CategoryResource>();
         CreateMap<CategoryGym, CategoryGymResource>();
+        CreateMap<Images, ImagesResource>();
     }
 }
