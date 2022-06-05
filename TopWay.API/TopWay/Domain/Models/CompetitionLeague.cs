@@ -8,4 +8,5 @@ public class CompetitionLeague
     public string type { get; set; }
     public League League { get; set; }
     public int LeagueId { get; set; }
+    public IList<CompetitionLeagueRanking> CompetitionLeagueRankings { get; set; } = new List<CompetitionLeagueRanking>();
 }
