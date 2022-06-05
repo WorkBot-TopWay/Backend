@@ -21,6 +21,7 @@ public class AppDbContext : DbContext
     public DbSet<CompetitionGym> CompetitionGyms { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; }
+    public DbSet<CompetitionGymRanking> CompetitionGymRankings { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -55,6 +56,11 @@ public class AppDbContext : DbContext
         
         builder.Entity<Scaler>()
             .HasMany(p=>p.CompetitionReservationClimbers)
+            .WithOne(p=>p.Scaler)
+            .HasForeignKey(p=>p.ScalerId);
+        
+        builder.Entity<Scaler>()
+            .HasMany(p=>p.CompetitionGymRankings)
             .WithOne(p=>p.Scaler)
             .HasForeignKey(p=>p.ScalerId);
         
@@ -173,6 +179,11 @@ public class AppDbContext : DbContext
             .WithMany(p => p.CompetitionGyms)
             .HasForeignKey(p => p.ClimberGymId);
         
+        builder.Entity<CompetitionGym>()
+            .HasMany(p => p.CompetitionGymRankings)
+            .WithOne(p => p.CompetitionGym)
+            .HasForeignKey(p => p.CompetitionGymId);
+
         // Comments entity
         builder.Entity<Comment>().ToTable("Comment");
         builder.Entity<Comment>().HasKey(p => p.Id);
@@ -214,6 +225,26 @@ public class AppDbContext : DbContext
             .HasOne(p => p.CompetitionGym)
             .WithMany(p => p.CompetitionReservationClimbers)
             .HasForeignKey(p => p.CompetitionGymId);
+        
+        // CompetitionGymRankings entity
+        builder.Entity<CompetitionGymRanking>().ToTable("CompetitionGymRankings");
+        builder.Entity<CompetitionGymRanking>().HasKey(p => p.Id);
+        builder.Entity<CompetitionGymRanking>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<CompetitionGymRanking>().Property(p => p.CompetitionGymId).IsRequired();
+        builder.Entity<CompetitionGymRanking>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<CompetitionGymRanking>().Property(p => p.Score).IsRequired();
+        
+        // relationships
+        
+        builder.Entity<CompetitionGymRanking>()
+            .HasOne(p => p.Scaler)
+            .WithMany(p => p.CompetitionGymRankings)
+            .HasForeignKey(p => p.ScalerId);
+        
+        builder.Entity<CompetitionGymRanking>()
+            .HasOne(p=>p.CompetitionGym)
+            .WithMany(p=>p.CompetitionGymRankings)
+            .HasForeignKey(p=>p.CompetitionGymId);
 
 
         // Apply Naming Conventions

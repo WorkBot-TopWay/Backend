@@ -10,4 +10,5 @@ public class CompetitionGym
     public int ClimberGymId { get; set; }
     public ClimbingGym ClimbingGym { get; set; }
     public IList<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; } = new List<CompetitionReservationClimber>();
+    public IList<CompetitionGymRanking> CompetitionGymRankings { get; set; } = new List<CompetitionGymRanking>();
 }

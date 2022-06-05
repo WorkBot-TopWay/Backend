@@ -16,4 +16,5 @@ public class Scaler
     public IList<Notification> Notifications { get; set; } = new List<Notification>();
     public IList<Comment> Comments { get; set; } = new List<Comment>();
     public IList<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; } = new List<CompetitionReservationClimber>();
+    public IList<CompetitionGymRanking> CompetitionGymRankings { get; set; } = new List<CompetitionGymRanking>();
 }
