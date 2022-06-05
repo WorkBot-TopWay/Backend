@@ -50,6 +50,7 @@ public class CompetitionLeagueRankingService:ICompetitionLeagueRankingService
     {
         return await _competitionLeagueRankingRepository.FindByIdAsync(id);
     }
+    //public async Task<CompetitionLeagueRanking> FindByCompetitionLeagueIdAndScalerIdAsync(int competitionLeagueId, int scalerId)
 
     public async Task<CompetitionLeagueRankingResponse> AddAsync(CompetitionLeagueRanking competitionLeagueRanking, int competitionLeagueId, int scalerId)
     {

@@ -9,8 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Services/CompetitionLeagueRankingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/CompetitionLeagueRankingService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +91,7 @@
       <workItem from="1654213851901" duration="12253000" />
       <workItem from="1654354986326" duration="10819000" />
       <workItem from="1654384747285" duration="49112000" />
+      <workItem from="1654462477343" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>
