@@ -49,6 +49,8 @@ builder.Services.AddScoped<ICompetitionGymRankingRepository, CompetitionGymRanki
 builder.Services.AddScoped<ICompetitionGymRankingService, CompetitionGymRankingService>();
 builder.Services.AddScoped<ILeagueRepository, LeagueRepository>();
 builder.Services.AddScoped<ILeagueService, LeagueService>();
+builder.Services.AddScoped<IRequestRepository, RequestRepository>();
+builder.Services.AddScoped<IRequestService, RequestService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

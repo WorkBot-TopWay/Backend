@@ -22,8 +22,8 @@ public class AppDbContext : DbContext
     public DbSet<Comment> Comments { get; set; }
     public DbSet<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; }
     public DbSet<CompetitionGymRanking> CompetitionGymRankings { get; set; }
-    
     public DbSet<League> Leagues { get; set; }
+    public DbSet<Request> Requests { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -68,6 +68,11 @@ public class AppDbContext : DbContext
         
         builder.Entity<Scaler>()
             .HasMany(p=>p.Leagues)
+            .WithOne(p=>p.Scaler)
+            .HasForeignKey(p=>p.ScalerId);
+        
+        builder.Entity<Scaler>()
+            .HasMany(p=>p.Requests)
             .WithOne(p=>p.Scaler)
             .HasForeignKey(p=>p.ScalerId);
 
@@ -282,7 +287,31 @@ public class AppDbContext : DbContext
             .WithMany(p=>p.Leagues)
             .HasForeignKey(p=>p.ClimbingGymId);
         
+        builder.Entity<League>()
+            .HasMany(p => p.Requests)
+            .WithOne(p => p.League)
+            .HasForeignKey(p => p.LeagueId);
 
+        // Request entity
+        builder.Entity<Request>().ToTable("Request");
+        builder.Entity<Request>().HasKey(p => p.Id);
+        builder.Entity<Request>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Request>().Property(p => p.LeagueId).IsRequired();
+        builder.Entity<Request>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<Request>().Property(p => p.Status).IsRequired().HasMaxLength(50);
+        
+        
+        // relationships
+        
+        builder.Entity<Request>()
+            .HasOne(p => p.Scaler)
+            .WithMany(p => p.Requests)
+            .HasForeignKey(p => p.ScalerId);
+        
+        builder.Entity<Request>()
+            .HasOne(p=>p.League)
+            .WithMany(p=>p.Requests)
+            .HasForeignKey(p=>p.LeagueId);
 
         // Apply Naming Conventions
 

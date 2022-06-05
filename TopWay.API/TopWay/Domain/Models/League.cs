@@ -12,4 +12,5 @@ public class League
     public int ScalerId { get; set; }
     public ClimbingGym ClimbingGym { get; set; }
     public int ClimbingGymId { get; set; }
+    public IList<Request> Requests { get; set; } = new List<Request>();
 }
