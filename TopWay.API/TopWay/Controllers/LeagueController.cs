@@ -72,7 +72,7 @@ public class LeagueController: ControllerBase
         var leagueResourceUpdated = _mapper.Map<League, LeagueResource>(result.Resource);
         return Ok(leagueResourceUpdated);
     }
-    [HttpPut("AddNewMember")]
+   /* [HttpPut("AddNewMember")]
     public async Task<IActionResult> AddNewParticipantAsync(int leagueId)
     {
         var result = await _leagueService.AddNewParticipant(leagueId);
@@ -80,7 +80,7 @@ public class LeagueController: ControllerBase
             return BadRequest(result.Message);
         var leagueResource = _mapper.Map<League, LeagueResource>(result.Resource);
         return Ok(leagueResource);
-    }
+    }*/
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {

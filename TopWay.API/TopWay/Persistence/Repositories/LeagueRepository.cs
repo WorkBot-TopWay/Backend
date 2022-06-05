@@ -21,6 +21,11 @@ public class LeagueRepository: BaseRepository, ILeagueRepository
         return await _context.Leagues.Where(l => l.ClimbingGymId == climbingGymId).ToListAsync();
     }
 
+    public async Task<League> FindByClimbingGymIdAndScalarId(int climbingGymId, int scalarId)
+    {
+        return (await _context.Leagues.FirstOrDefaultAsync(l => l.ClimbingGymId == climbingGymId && l.ScalerId == scalarId))!;
+    }
+
     public async Task<League> GetById(int id)
     {
         return (await _context.Leagues.FindAsync(id))!;

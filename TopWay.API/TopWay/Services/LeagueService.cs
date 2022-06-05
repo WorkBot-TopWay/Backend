@@ -98,15 +98,55 @@ public class LeagueService : ILeagueService
         }
     }
 
-    public async Task<LeagueResponse> AddNewParticipant(int leagueId)
+    public async Task<LeagueResponse> UpdateNumberParticipant(int leagueId, int scaleId)
     {
        var exitingLeague = await _leagueRepository.GetById(leagueId);
+       var exitingScale = await _scalerRepository.FindByIdAsync(scaleId);
+       if (exitingLeague == null)
+       {
+            return new LeagueResponse("League not found.");
+       }
+       if(exitingScale == null)
+       {
+            return new LeagueResponse("Scale not found.");
+       }
+
+       if (exitingLeague.ScalerId == scaleId)
+       {
+            return new LeagueResponse("This scale is already in this league.");
+       }
+        
+       exitingLeague.NumberParticipants++;
+       try
+       {
+            _leagueRepository.Update(exitingLeague);
+            await _unitOfWork.CompleteAsync();
+            return new LeagueResponse(exitingLeague);
+       }
+       catch (Exception ex) 
+       {
+            return new LeagueResponse($"An error occurred when updating the league: {ex.Message}");
+       }
+    }
+
+    public async Task<LeagueResponse> DeleteParticipant(int leagueId, int scaleId)
+    {
+        var exitingLeague = await _leagueRepository.GetById(leagueId);
+        var exitingScale = await _scalerRepository.FindByIdAsync(scaleId);
         if (exitingLeague == null)
         {
             return new LeagueResponse("League not found.");
         }
+        if(exitingScale == null)
+        {
+            return new LeagueResponse("Scale not found.");
+        }
 
-        exitingLeague.NumberParticipants++;
+        if (exitingLeague.ScalerId == scaleId)
+        {
+            return new LeagueResponse("You cannot delete the league because you are an administrator.");
+        }
+        exitingLeague.NumberParticipants--;
         try
         {
             _leagueRepository.Update(exitingLeague);

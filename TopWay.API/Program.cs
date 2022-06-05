@@ -51,6 +51,8 @@ builder.Services.AddScoped<ILeagueRepository, LeagueRepository>();
 builder.Services.AddScoped<ILeagueService, LeagueService>();
 builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 builder.Services.AddScoped<IRequestService, RequestService>();
+builder.Services.AddScoped<IClimbersLeagueRepository, ClimbersLeagueRepository>();
+builder.Services.AddScoped<IClimbersLeagueService, ClimbersLeagueService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

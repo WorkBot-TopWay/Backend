@@ -20,5 +20,6 @@ public class ModelToResourceProfile : Profile
         CreateMap<CompetitionGymRanking, CompetitionGymRankingResource>();
         CreateMap<League, LeagueResource>();
         CreateMap<Request, RequestResource>();
+        CreateMap<ClimbersLeague, ClimbersLeagueResource>();
     }
 }

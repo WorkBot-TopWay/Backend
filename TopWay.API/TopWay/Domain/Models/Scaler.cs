@@ -19,4 +19,5 @@ public class Scaler
     public IList<CompetitionGymRanking> CompetitionGymRankings { get; set; } = new List<CompetitionGymRanking>();
     public IList<League> Leagues { get; set; } = new List<League>();
     public IList<Request> Requests { get; set; } = new List<Request>();
+    public IList<ClimbersLeague> ClimbersLeagues { get; set; } = new List<ClimbersLeague>();
 }
