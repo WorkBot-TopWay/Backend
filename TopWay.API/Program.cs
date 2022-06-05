@@ -41,6 +41,8 @@ builder.Services.AddScoped<IImagesRepository, ImagesRepository>();
 builder.Services.AddScoped<IImagesService, ImagesService>();
 builder.Services.AddScoped<ICompetitionGymRepository, CompetitionGymRepository>();
 builder.Services.AddScoped<ICompetitionGymService, CompetitionGymService>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ICommentService, CommentService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

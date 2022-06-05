@@ -19,6 +19,7 @@ public class AppDbContext : DbContext
     public DbSet<CategoryGym> CategoriesGyms { get; set; }
     public DbSet<Images> Images { get; set; }
     public DbSet<CompetitionGym> CompetitionGyms { get; set; }
+    public DbSet<Comment> Comments { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -45,6 +46,11 @@ public class AppDbContext : DbContext
             .HasMany(p => p.Notifications)
             .WithOne(p => p.Scaler)
             .HasForeignKey(p => p.ScalerId);
+        
+        builder.Entity<Scaler>()
+            .HasMany(p=>p.Comments)
+            .WithOne(p=>p.Scaler)
+            .HasForeignKey(p=>p.ScalerId);
         
         // ClimbingGyms entity
         
@@ -77,6 +83,11 @@ public class AppDbContext : DbContext
             .HasMany(p => p.CompetitionGyms)
             .WithOne(p => p.ClimbingGym)
             .HasForeignKey(p => p.ClimberGymId);
+        
+        builder.Entity<ClimbingGym>()
+            .HasMany(p => p.Comments)
+            .WithOne(p => p.ClimbingGym)
+            .HasForeignKey(p => p.ClimbingGymId);
 
         // Notifications entity
         builder.Entity<Notification>().ToTable("Notifications");
@@ -155,6 +166,29 @@ public class AppDbContext : DbContext
             .HasOne(p => p.ClimbingGym)
             .WithMany(p => p.CompetitionGyms)
             .HasForeignKey(p => p.ClimberGymId);
+        
+        // Comments entity
+        builder.Entity<Comment>().ToTable("Comment");
+        builder.Entity<Comment>().HasKey(p => p.Id);
+        builder.Entity<Comment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Comment>().Property(p => p.Description).IsRequired().HasMaxLength(250);
+        builder.Entity<Comment>().Property(p => p.ClimbingGymId).IsRequired();
+        builder.Entity<Comment>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<Comment>().Property(p => p.Date).IsRequired();
+        builder.Entity<Comment>().Property(p=>p.Score).IsRequired();
+        
+        // relationships
+        
+        builder.Entity<Comment>()
+            .HasOne(p => p.ClimbingGym)
+            .WithMany(p => p.Comments)
+            .HasForeignKey(p => p.ClimbingGymId);
+        
+        builder.Entity<Comment>()
+            .HasOne(p=>p.Scaler)
+            .WithMany(p=>p.Comments)
+            .HasForeignKey(p=>p.ScalerId);
+        
 
         // Apply Naming Conventions
 

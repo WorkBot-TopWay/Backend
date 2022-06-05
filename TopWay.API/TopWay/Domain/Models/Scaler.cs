@@ -14,4 +14,5 @@ public class Scaler
     public string UrlPhoto { get; set; }
     public string Type { get; set; }
     public IList<Notification> Notifications { get; set; } = new List<Notification>();
+    public IList<Comment> Comments { get; set; } = new List<Comment>();
 }

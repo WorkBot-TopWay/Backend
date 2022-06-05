@@ -51,6 +51,11 @@ public class CategoryGymService : ICategoryGymService
     {
         var existingCategory = await _categoryRepository.FindByIdAsync(categoryId);
         var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
+        var existingCategoryGym = await _categoryGymRepository.FindByCategoryIdAndClimbingGymIdAsync(categoryId, climbingGymId);
+        if (existingCategoryGym != null)
+        {
+            return new CategoryGymResponse("CategoryGym already exists");
+        }
         if (existingCategory == null)
         {
             return new CategoryGymResponse("Category not found.");
