@@ -47,6 +47,8 @@ builder.Services.AddScoped<ICompetitionReservationClimberRepository, Competition
 builder.Services.AddScoped<ICompetitionReservationClimberService, CompetitionReservationClimberService>();
 builder.Services.AddScoped<ICompetitionGymRankingRepository, CompetitionGymRankingRepository>();
 builder.Services.AddScoped<ICompetitionGymRankingService, CompetitionGymRankingService>();
+builder.Services.AddScoped<ILeagueRepository, LeagueRepository>();
+builder.Services.AddScoped<ILeagueService, LeagueService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

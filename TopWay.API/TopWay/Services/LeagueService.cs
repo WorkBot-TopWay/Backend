@@ -1,0 +1,141 @@
+﻿using TopWay.API.TopWay.Domain.Models;
+using TopWay.API.TopWay.Domain.Repositories;
+using TopWay.API.TopWay.Domain.Services;
+using TopWay.API.TopWay.Domain.Services.Communication;
+
+namespace TopWay.API.TopWay.Services;
+
+public class LeagueService : ILeagueService
+{
+    private readonly ILeagueRepository _leagueRepository;
+    private readonly IScalerRepository _scalerRepository;
+    private readonly IClimbingGymRepository _climbingGymRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public LeagueService(ILeagueRepository leagueRepository, IScalerRepository scalerRepository,
+        IClimbingGymRepository climbingGymRepository, IUnitOfWork unitOfWork)
+    {
+        _leagueRepository = leagueRepository;
+        _scalerRepository = scalerRepository;
+        _climbingGymRepository = climbingGymRepository;
+        _unitOfWork = unitOfWork;
+    }
+
+
+    public async Task<IEnumerable<League>> GetAll()
+    {
+        return await _leagueRepository.GetAll();
+    }
+
+    public async Task<IEnumerable<League>> FindByClimbingGymId(int climbingGymId)
+    {
+        return await _leagueRepository.FindByClimbingGymId(climbingGymId);
+    }
+
+
+    public async Task<League> GetById(int id)
+    {
+        return await _leagueRepository.GetById(id);
+    }
+
+    public async Task<LeagueResponse> Add(League league, int climbingGymId, int scaleId)
+    {
+        var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
+        var existingScale = await _scalerRepository.FindByIdAsync(scaleId);
+        if (existingClimbingGym == null)
+        {
+            return new LeagueResponse("Climbing gym not found.");
+        }
+
+        if (existingScale == null)
+        {
+            return new LeagueResponse("Scale not found.");
+        }
+
+        league.ClimbingGym = existingClimbingGym;
+        league.Scaler = existingScale;
+        league.ScalerId = scaleId;
+        league.ClimbingGymId = climbingGymId;
+        league.AdminName = existingScale.FirstName + " " + existingScale.LastName;
+        league.NumberParticipants = 1;
+        try
+        {
+            await _leagueRepository.AddAsync(league);
+            await _unitOfWork.CompleteAsync();
+            return new LeagueResponse(league);
+        }
+        catch (Exception ex)
+        {
+            return new LeagueResponse($"An error occurred when saving the league: {ex.Message}");
+        }
+    }
+
+    public async Task<LeagueResponse> Update(League league, int leagueId)
+    {
+        var existingLeague = await _leagueRepository.GetById(leagueId);
+        if (existingLeague == null)
+        {
+            return new LeagueResponse("League not found.");
+        }   
+        league.Name = league.Name;
+        league.Description = league.Description;
+        league.UrlLogo = league.UrlLogo;
+        league.AdminName = existingLeague.AdminName;
+        league.NumberParticipants = existingLeague.NumberParticipants;
+        league.ScalerId = existingLeague.ScalerId;
+        league.ClimbingGymId = existingLeague.ClimbingGymId;
+        league.ClimbingGym = existingLeague.ClimbingGym;
+        league.Scaler = existingLeague.Scaler;
+        try
+        {
+            _leagueRepository.Update(league);
+            await _unitOfWork.CompleteAsync();
+            return new LeagueResponse(league);
+        }
+        catch (Exception ex)
+        {
+            return new LeagueResponse($"An error occurred when updating the league: {ex.Message}");
+        }
+    }
+
+    public async Task<LeagueResponse> AddNewParticipant(int leagueId)
+    {
+       var exitingLeague = await _leagueRepository.GetById(leagueId);
+        if (exitingLeague == null)
+        {
+            return new LeagueResponse("League not found.");
+        }
+
+        exitingLeague.NumberParticipants++;
+        try
+        {
+            _leagueRepository.Update(exitingLeague);
+            await _unitOfWork.CompleteAsync();
+            return new LeagueResponse(exitingLeague);
+        }
+        catch (Exception ex)
+        {
+            return new LeagueResponse($"An error occurred when updating the league: {ex.Message}");
+        }
+    }
+
+    public async Task<LeagueResponse> Delete(int scaleId)
+    {
+        var existingLeague = await _leagueRepository.GetById(scaleId);
+        if (existingLeague == null)
+        {
+            return new LeagueResponse("League not found.");
+        }
+
+        try
+        {
+            _leagueRepository.Delete(existingLeague);
+            await _unitOfWork.CompleteAsync();
+            return new LeagueResponse(existingLeague);
+        }
+        catch (Exception ex)
+        {
+            return new LeagueResponse($"An error occurred when deleting the league: {ex.Message}");
+        }
+    }
+}
