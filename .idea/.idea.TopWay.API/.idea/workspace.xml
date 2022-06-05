@@ -9,22 +9,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/CommentController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/Comment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/Communication/CommentResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/ICommentService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/CommentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/CommentResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/SaveCommentResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/CommentService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/CompetitionReservationClimberController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/CompetitionReservationClimber.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/ICompetitionReservationClimberRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/Communication/CompetitionReservationClimberResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/ICompetitionReservationClimberService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/CompetitionReservationClimberRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/CompetitionReservationClimberResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/SaveCompetitionReservationClimberResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/CompetitionReservationClimberService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopWay.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/ClimbingGym.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/ClimbingGym.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/CompetitionGym.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/CompetitionGym.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/Scaler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/Scaler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ModelToResourceProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ModelToResourceProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ResourceToModelProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ResourceToModelProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Contexts/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Contexts/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Services/CategoryGymService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/CategoryGymService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +111,7 @@
       <workItem from="1654183493448" duration="11017000" />
       <workItem from="1654213851901" duration="12253000" />
       <workItem from="1654354986326" duration="10819000" />
-      <workItem from="1654384747285" duration="3656000" />
+      <workItem from="1654384747285" duration="10769000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>

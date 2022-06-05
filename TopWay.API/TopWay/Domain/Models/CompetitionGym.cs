@@ -9,4 +9,5 @@ public class CompetitionGym
     public string type { get; set; }
     public int ClimberGymId { get; set; }
     public ClimbingGym ClimbingGym { get; set; }
+    public IList<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; } = new List<CompetitionReservationClimber>();
 }

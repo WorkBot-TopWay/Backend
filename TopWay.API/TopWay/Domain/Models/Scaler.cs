@@ -15,4 +15,5 @@ public class Scaler
     public string Type { get; set; }
     public IList<Notification> Notifications { get; set; } = new List<Notification>();
     public IList<Comment> Comments { get; set; } = new List<Comment>();
+    public IList<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; } = new List<CompetitionReservationClimber>();
 }

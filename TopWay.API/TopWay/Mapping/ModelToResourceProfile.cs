@@ -16,5 +16,6 @@ public class ModelToResourceProfile : Profile
         CreateMap<Images, ImagesResource>();
         CreateMap<CompetitionGym, CompetitionGymResource>();
         CreateMap<Comment, CommentResource>();
+        CreateMap<CompetitionReservationClimber, CompetitionReservationClimberResource>();
     }
 }

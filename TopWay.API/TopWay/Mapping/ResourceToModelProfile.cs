@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore.Metadata;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Resources;
 
@@ -16,5 +17,6 @@ public class ResourceToModelProfile : Profile
         CreateMap<SaveImagesResource, Images>();
         CreateMap<SaveCompetitionGymResource, CompetitionGym>();
         CreateMap<SaveCommentResource, Comment>();
+        CreateMap<SaveCompetitionReservationClimberResource, CompetitionReservationClimber>();
     }
 }

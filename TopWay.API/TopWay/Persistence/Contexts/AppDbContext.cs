@@ -20,6 +20,7 @@ public class AppDbContext : DbContext
     public DbSet<Images> Images { get; set; }
     public DbSet<CompetitionGym> CompetitionGyms { get; set; }
     public DbSet<Comment> Comments { get; set; }
+    public DbSet<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -49,6 +50,11 @@ public class AppDbContext : DbContext
         
         builder.Entity<Scaler>()
             .HasMany(p=>p.Comments)
+            .WithOne(p=>p.Scaler)
+            .HasForeignKey(p=>p.ScalerId);
+        
+        builder.Entity<Scaler>()
+            .HasMany(p=>p.CompetitionReservationClimbers)
             .WithOne(p=>p.Scaler)
             .HasForeignKey(p=>p.ScalerId);
         
@@ -189,6 +195,26 @@ public class AppDbContext : DbContext
             .WithMany(p=>p.Comments)
             .HasForeignKey(p=>p.ScalerId);
         
+        // CompetitionReservationClimber entity
+        builder.Entity<CompetitionReservationClimber>().ToTable("CReservationClimber");
+        builder.Entity<CompetitionReservationClimber>().HasKey(p => p.Id);
+        builder.Entity<CompetitionReservationClimber>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<CompetitionReservationClimber>().Property(p => p.CompetitionGymId).IsRequired();
+        builder.Entity<CompetitionReservationClimber>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<CompetitionReservationClimber>().Property(p => p.Status).IsRequired().HasMaxLength(50);
+        
+        // relationships
+        
+        builder.Entity<CompetitionReservationClimber>()
+            .HasOne(p => p.Scaler)
+            .WithMany(p => p.CompetitionReservationClimbers)
+            .HasForeignKey(p => p.ScalerId);
+        
+        builder.Entity<CompetitionReservationClimber>()
+            .HasOne(p => p.CompetitionGym)
+            .WithMany(p => p.CompetitionReservationClimbers)
+            .HasForeignKey(p => p.CompetitionGymId);
+
 
         // Apply Naming Conventions
 
