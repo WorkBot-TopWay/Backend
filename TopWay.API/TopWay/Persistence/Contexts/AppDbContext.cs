@@ -24,8 +24,8 @@ public class AppDbContext : DbContext
     public DbSet<CompetitionGymRanking> CompetitionGymRankings { get; set; }
     public DbSet<League> Leagues { get; set; }
     public DbSet<Request> Requests { get; set; }
-    
     public DbSet<ClimbersLeague> ClimbersLeagues { get; set; }
+    public DbSet<CompetitionLeague> CompetitionLeagues { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -308,6 +308,11 @@ public class AppDbContext : DbContext
             .HasMany(p => p.ClimbersLeagues)
             .WithOne(p => p.League)
             .HasForeignKey(p => p.LeagueId);
+        
+        builder.Entity<League>()
+            .HasMany(p => p.CompetitionLeagues)
+            .WithOne(p => p.League)
+            .HasForeignKey(p => p.LeagueId);
 
         // Request entity
         builder.Entity<Request>().ToTable("Request");
@@ -355,6 +360,22 @@ public class AppDbContext : DbContext
             .HasOne(p=>p.ClimbingGym)
             .WithMany(p=>p.ClimbersLeagues)
             .HasForeignKey(p=>p.ClimbingGymId);
+        
+        // CompetitionLeagues entity
+        builder.Entity<CompetitionLeague>().ToTable("CompetitionLeagues");
+        builder.Entity<CompetitionLeague>().HasKey(p => p.Id);
+        builder.Entity<CompetitionLeague>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<CompetitionLeague>().Property(p => p.LeagueId).IsRequired();
+        builder.Entity<CompetitionLeague>().Property(p => p.Name).IsRequired().HasMaxLength(100);
+        builder.Entity<CompetitionLeague>().Property(p => p.Date).IsRequired();
+        builder.Entity<CompetitionLeague>().Property(p => p.type).IsRequired().HasMaxLength(50);
+        
+        // relationships
+        
+        builder.Entity<CompetitionLeague>()
+            .HasOne(p => p.League)
+            .WithMany(p => p.CompetitionLeagues)
+            .HasForeignKey(p => p.LeagueId);
 
         // Apply Naming Conventions
 

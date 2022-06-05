@@ -22,5 +22,6 @@ public class ResourceToModelProfile : Profile
         CreateMap<SaveLeagueResource, League>();
         CreateMap<SaveRequestResource, Request>();
         CreateMap<SaveClimbersLeagueResource, ClimbersLeague>();
+        CreateMap<SaveCompetitionLeagueResource, CompetitionLeague>();
     }
 }

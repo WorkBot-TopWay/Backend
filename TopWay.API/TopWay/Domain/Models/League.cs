@@ -14,4 +14,5 @@ public class League
     public int ClimbingGymId { get; set; }
     public IList<Request> Requests { get; set; } = new List<Request>();
     public IList<ClimbersLeague> ClimbersLeagues { get; set; } = new List<ClimbersLeague>();
+    public IList<CompetitionLeague> CompetitionLeagues { get; set; } = new List<CompetitionLeague>();
 }
