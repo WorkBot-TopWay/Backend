@@ -33,6 +33,11 @@ public class CompetitionGymRankingService: ICompetitionGymRankingService
         return await _competitionGymRankingRepository.FindScalerByCompetitionIdAsync(competitionId);
     }
 
+    public async Task<IEnumerable<CompetitionGymRanking>> FindByCompetitionGymIdAsync(int competitionGymId)
+    {
+        return await _competitionGymRankingRepository.FindByCompetitionGymIdAsync(competitionGymId);
+    }
+
     public async Task<CompetitionGymRanking> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
     {
         return await _competitionGymRankingRepository.FindByCompetitionIdAndScalerIdAsync(competitionId, scalerId);

@@ -51,6 +51,18 @@ public class CompetitionGymRankingController:ControllerBase
         return Ok(resource);
     }
     
+    [HttpGet("FindByCompetitionGymId")]
+    public async Task<ActionResult<IEnumerable<CompetitionGymRankingResource>>> FindByCompetitionGymId(int competitionGymId)
+    {
+        var competitionGymRanking = await _competitionGymRankingService.FindByCompetitionGymIdAsync(competitionGymId);
+        if (competitionGymRanking == null)
+        {
+            return NotFound();
+        }
+        var resources = _mapper.Map<IEnumerable<CompetitionGymRanking>, IEnumerable<CompetitionGymRankingResource>>(competitionGymRanking);
+        return Ok(resources);
+    }
+    
     [HttpGet("FindScalerByCompetitionId")]
     public async Task<ActionResult<IEnumerable<Scaler>>> FindScalerByCompetitionId(int competitionId)
     {

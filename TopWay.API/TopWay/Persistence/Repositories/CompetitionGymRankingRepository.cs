@@ -24,6 +24,13 @@ public class CompetitionGymRankingRepository: BaseRepository, ICompetitionGymRan
            .ToListAsync();
     }
 
+    public async Task<IEnumerable<CompetitionGymRanking>> FindByCompetitionGymIdAsync(int competitionGymId)
+    {
+        return await _context.CompetitionGymRankings
+            .Where(c => c.CompetitionGymId == competitionGymId)
+            .ToListAsync();
+    }
+
     public async Task<CompetitionGymRanking> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
     {
         return (await _context.CompetitionGymRankings

@@ -7,6 +7,7 @@ public interface ICompetitionGymRankingService
 {
     Task<IEnumerable<CompetitionGymRanking>> ListAsync();
     Task<IEnumerable<Scaler>> FindScalerByCompetitionIdAsync(int competitionId);
+    Task<IEnumerable<CompetitionGymRanking>> FindByCompetitionGymIdAsync(int competitionGymId);
     Task<CompetitionGymRanking> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId);
     Task<CompetitionGymRanking> FindByIdAsync(int id);
     Task<CompetitionGymRankingResponse> AddAsync(CompetitionGymRanking competitionGymRanking,int competitionId, int scalerId);
