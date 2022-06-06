@@ -23,5 +23,6 @@ public class ModelToResourceProfile : Profile
         CreateMap<ClimbersLeague, ClimbersLeagueResource>();
         CreateMap<CompetitionLeague, CompetitionLeagueResource>();
         CreateMap<CompetitionLeagueRanking, CompetitionLeagueRankingResource>();
+        CreateMap<Favorite, FavoriteResource>();
     }
 }
