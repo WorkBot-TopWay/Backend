@@ -9,7 +9,9 @@ using TopWay.API.TopWay.Resources;
 namespace TopWay.API.TopWay.Controllers;
 
 
+[ApiController]
 [Route("api/v1/[controller]")]
+[Produces("application/json")]
 public class CompetitionLeagueRankingController:ControllerBase
 {
     private readonly ICompetitionLeagueRankingService _competitionLeagueRankingService;

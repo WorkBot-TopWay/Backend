@@ -8,7 +8,9 @@ using TopWay.API.TopWay.Resources;
 namespace TopWay.API.TopWay.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
+[ApiController]
 [Route("api/v1/[controller]")]
+[Produces("application/json")]
 public class ScalerController : ControllerBase
 {
     private readonly IScalerService _scalerService;

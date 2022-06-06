@@ -7,8 +7,9 @@ using TopWay.API.TopWay.Domain.Services;
 using TopWay.API.TopWay.Resources;
 
 namespace TopWay.API.TopWay.Controllers;
-
+[ApiController]
 [Route("api/v1/[controller]")]
+[Produces("application/json")]
 public class CategoryController: ControllerBase
 {
     private readonly ICategoryService _categoryService;
@@ -20,13 +21,26 @@ public class CategoryController: ControllerBase
         _mapper = mapper;
     }
 
-    [HttpGet]
-    public async Task<IEnumerable<CategoryResource> > GetAllAsync()
+    [HttpGet ("{name?}")]
+    
+    public async Task<IActionResult> GetAllAsync(string name ="")
     {
+        if (name != null)
+        {
+            var result = await _categoryService.FindByNameAsync(name);
+            if(result == null)
+            {
+                return NotFound();
+            }
+            var resource = _mapper.Map<Category, CategoryResource>(result);
+            return Ok(resource);
+        }
+
         var categories = await _categoryService.ListAsync();
         var resources = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryResource>>(categories);
-        return resources;
+        return Ok(resources);
     }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAsync(int id)
     {
@@ -39,7 +53,7 @@ public class CategoryController: ControllerBase
         return Ok(resource);
     }
     
-    [HttpGet("findByName/{name}")]
+    /*[HttpGet("{name}")]
     public async Task<IActionResult> GetByNameAsync(string name)
     {
         var result = await _categoryService.FindByNameAsync(name);
@@ -49,7 +63,7 @@ public class CategoryController: ControllerBase
         }
         var resource = _mapper.Map<Category, CategoryResource>(result);
         return Ok(resource);
-    }
+    }*/
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
     {
