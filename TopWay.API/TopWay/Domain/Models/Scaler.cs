@@ -21,4 +21,6 @@ public class Scaler
     public IList<Request> Requests { get; set; } = new List<Request>();
     public IList<ClimbersLeague> ClimbersLeagues { get; set; } = new List<ClimbersLeague>();
     public IList<CompetitionLeagueRanking> CompetitionLeagueRankings { get; set; } = new List<CompetitionLeagueRanking>();
+    
+    public IList<Favorite> Favorites { get; set; } = new List<Favorite>();
 }

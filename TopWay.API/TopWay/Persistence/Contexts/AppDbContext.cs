@@ -28,6 +28,8 @@ public class AppDbContext : DbContext
     public DbSet<CompetitionLeague> CompetitionLeagues { get; set; }
     
     public DbSet<CompetitionLeagueRanking> CompetitionLeagueRankings { get; set; }
+    
+    public DbSet<Favorite> Favorites { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -409,6 +411,25 @@ public class AppDbContext : DbContext
             .WithMany(p=>p.CompetitionLeagueRankings)
             .HasForeignKey(p=>p.CompetitionLeagueId);
 
+        // Favorite entity
+        builder.Entity<Favorite>().ToTable("Favorites");
+        builder.Entity<Favorite>().HasKey(p => p.Id);
+        builder.Entity<Favorite>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Favorite>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<Favorite>().Property(p => p.ClimbingGymId).IsRequired();
+        
+        // relationships
+        
+        builder.Entity<Favorite>()
+            .HasOne(p => p.ClimbingGym)
+            .WithMany(p => p.Favorites)
+            .HasForeignKey(p => p.ClimbingGymId);
+        
+        builder.Entity<Favorite>()
+            .HasOne(p=>p.Scaler)
+            .WithMany(p=>p.Favorites)
+            .HasForeignKey(p=>p.ScalerId);
+        
         // Apply Naming Conventions
 
         builder.UseSnakeCaseNamingConvention();

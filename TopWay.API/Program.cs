@@ -57,6 +57,8 @@ builder.Services.AddScoped<ICompetitionLeagueRepository, CompetitionLeagueReposi
 builder.Services.AddScoped<ICompetitionLeagueService, CompetitionLeagueService>();
 builder.Services.AddScoped<ICompetitionLeagueRankingRepository, CompetitionLeagueRankingRepository>();
 builder.Services.AddScoped<ICompetitionLeagueRankingService, CompetitionLeagueRankingService>();
+builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+builder.Services.AddScoped<IFavoriteService, FavoriteService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
