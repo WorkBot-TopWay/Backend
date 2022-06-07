@@ -1,9 +1,10 @@
 ﻿Feature: CommentsServiceTest
-	Simple calculator for adding two numbers
+	As a user
+  	I want to be able to comment on a post
+  	So that I can share my opinion with others
 
-@mytag
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+	Background: 
+		Given a user has a post
+		And the user has a comment
+		When the user deletes the comment
+		Then the comment should be deleted
