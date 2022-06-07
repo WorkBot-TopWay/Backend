@@ -38,6 +38,10 @@ public class CompetitionReservationClimbersController:ControllerBase
             int competitionId = int.Parse(competitionGymId);
             int ScalerId = int.Parse(scalerId);
             var result = await _competitionReservationClimberService.FindByCompetitionIdAndScalerIdAsync(competitionId, ScalerId);
+            if (result == null)
+            {
+                return NotFound(new { message = "Competition Reservation Climber not found" });
+            }
             var resource = _mapper.Map<CompetitionReservationClimber, CompetitionReservationClimberResource>(result);
             return Ok(resource);
         }
