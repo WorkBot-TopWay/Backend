@@ -77,6 +77,10 @@ builder.Services.AddScoped<ICompetitionLeagueRankingRepository, CompetitionLeagu
 builder.Services.AddScoped<ICompetitionLeagueRankingService, CompetitionLeagueRankingService>();
 builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
 builder.Services.AddScoped<IFavoriteService, FavoriteService>();
+builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
+builder.Services.AddScoped<IFeatureService, FeatureService>();
+builder.Services.AddScoped<INewsRepository, NewsRepository>();
+builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

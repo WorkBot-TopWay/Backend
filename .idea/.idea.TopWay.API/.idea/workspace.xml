@@ -8,7 +8,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="" />
+    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/FeaturesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/NewsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/Features.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/News.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/IFeatureRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/INewsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/Communication/FeatureResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/Communication/NewsResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/IFeatureService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/INewsService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/FeatureRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/NewsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/FeaturesResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/NewsResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/SaveFeaturesResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/SaveNewsResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/FeatureService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/NewsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/ClimbingGyms.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/ClimbingGyms.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ModelToResourceProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ModelToResourceProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ResourceToModelProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ResourceToModelProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Contexts/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Contexts/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,6 +124,7 @@
       <workItem from="1654384747285" duration="49112000" />
       <workItem from="1654462477343" duration="312000" />
       <workItem from="1654519337571" duration="29596000" />
+      <workItem from="1654575095538" duration="8663000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>
