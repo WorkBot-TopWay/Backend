@@ -99,11 +99,11 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
 }
 
 // Run the application for Swagger
-if (app.Environment.IsDevelopment()) 
-{
+//if (app.Environment.IsDevelopment()) 
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
