@@ -16,3 +16,4 @@ So that I can see if the service is working
           | testuser | testpass |
         Then the response should be a 201
         And the response should be a JSON object
+        And the response should contain the following details
