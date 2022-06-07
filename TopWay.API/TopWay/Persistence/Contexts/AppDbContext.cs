@@ -13,18 +13,18 @@ public class AppDbContext : DbContext
     // Declare DbSet of the entity
     
     public DbSet<Scaler> Scalers { get; set; }
-    public DbSet<ClimbingGym> ClimbingGyms { get; set; }
+    public DbSet<ClimbingGyms> ClimbingGyms { get; set; }
     public DbSet<Notification> Notifications { get; set; }
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<CategoryGym> CategoriesGyms { get; set; }
+    public DbSet<Categories> Categories { get; set; }
+    public DbSet<CategoryGyms> CategoriesGyms { get; set; }
     public DbSet<Images> Images { get; set; }
-    public DbSet<CompetitionGym> CompetitionGyms { get; set; }
-    public DbSet<Comment> Comments { get; set; }
+    public DbSet<CompetitionGyms> CompetitionGyms { get; set; }
+    public DbSet<Comments> Comments { get; set; }
     public DbSet<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; }
-    public DbSet<CompetitionGymRanking> CompetitionGymRankings { get; set; }
+    public DbSet<CompetitionGymRankings> CompetitionGymRankings { get; set; }
     public DbSet<League> Leagues { get; set; }
     public DbSet<Request> Requests { get; set; }
-    public DbSet<ClimbersLeague> ClimbersLeagues { get; set; }
+    public DbSet<ClimberLeagues> ClimbersLeagues { get; set; }
     public DbSet<CompetitionLeague> CompetitionLeagues { get; set; }
     
     public DbSet<CompetitionLeagueRanking> CompetitionLeagueRankings { get; set; }
@@ -94,49 +94,49 @@ public class AppDbContext : DbContext
 
         // ClimbingGyms entity
         
-        builder.Entity<ClimbingGym>().ToTable("ClimbingGyms");
-        builder.Entity<ClimbingGym>().HasKey(p => p.Id);
-        builder.Entity<ClimbingGym>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<ClimbingGym>().Property(p => p.Name).IsRequired().HasMaxLength(50);
-        builder.Entity<ClimbingGym>().Property(p => p.Password).IsRequired().HasMaxLength(150);
-        builder.Entity<ClimbingGym>().Property(p => p.Email).IsRequired().HasMaxLength(150);
-        builder.Entity<ClimbingGym>().Property(p => p.City).IsRequired().HasMaxLength(50);
-        builder.Entity<ClimbingGym>().Property(p => p.District).IsRequired().HasMaxLength(50);
-        builder.Entity<ClimbingGym>().Property(p => p.Address).IsRequired().HasMaxLength(250);
-        builder.Entity<ClimbingGym>().Property(p => p.Phone).IsRequired().HasMaxLength(20);
-        builder.Entity<ClimbingGym>().Property(p => p.LogoUrl).IsRequired().HasMaxLength(1000);
-        builder.Entity<ClimbingGym>().Property(p => p.type).HasMaxLength(50);
+        builder.Entity<ClimbingGyms>().ToTable("ClimbingGyms");
+        builder.Entity<ClimbingGyms>().HasKey(p => p.Id);
+        builder.Entity<ClimbingGyms>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<ClimbingGyms>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+        builder.Entity<ClimbingGyms>().Property(p => p.Password).IsRequired().HasMaxLength(150);
+        builder.Entity<ClimbingGyms>().Property(p => p.Email).IsRequired().HasMaxLength(150);
+        builder.Entity<ClimbingGyms>().Property(p => p.City).IsRequired().HasMaxLength(50);
+        builder.Entity<ClimbingGyms>().Property(p => p.District).IsRequired().HasMaxLength(50);
+        builder.Entity<ClimbingGyms>().Property(p => p.Address).IsRequired().HasMaxLength(250);
+        builder.Entity<ClimbingGyms>().Property(p => p.Phone).IsRequired().HasMaxLength(20);
+        builder.Entity<ClimbingGyms>().Property(p => p.LogoUrl).IsRequired().HasMaxLength(1000);
+        builder.Entity<ClimbingGyms>().Property(p => p.type).HasMaxLength(50);
         
         // relationships
         
-        builder.Entity<ClimbingGym>()
+        builder.Entity<ClimbingGyms>()
             .HasMany(p => p.CategoryGyms)
-            .WithOne(p => p.ClimbingGym)
+            .WithOne(p => p.ClimbingGyms)
             .HasForeignKey(p => p.ClimbingGymId);
         
-        builder.Entity<ClimbingGym>()
+        builder.Entity<ClimbingGyms>()
             .HasMany(p => p.Images)
-            .WithOne(p => p.ClimbingGym)
+            .WithOne(p => p.ClimbingGyms)
             .HasForeignKey(p => p.ClimbingGymId);
 
-        builder.Entity<ClimbingGym>()
+        builder.Entity<ClimbingGyms>()
             .HasMany(p => p.CompetitionGyms)
-            .WithOne(p => p.ClimbingGym)
+            .WithOne(p => p.ClimbingGyms)
             .HasForeignKey(p => p.ClimberGymId);
         
-        builder.Entity<ClimbingGym>()
+        builder.Entity<ClimbingGyms>()
             .HasMany(p => p.Comments)
-            .WithOne(p => p.ClimbingGym)
+            .WithOne(p => p.ClimbingGyms)
             .HasForeignKey(p => p.ClimbingGymId);
         
-        builder.Entity<ClimbingGym>()
+        builder.Entity<ClimbingGyms>()
             .HasMany(p=>p.Leagues)
-            .WithOne(p=>p.ClimbingGym)
+            .WithOne(p=>p.ClimbingGyms)
             .HasForeignKey(p=>p.ClimbingGymId);
         
-        builder.Entity<ClimbingGym>()
+        builder.Entity<ClimbingGyms>()
             .HasMany(p=>p.ClimbersLeagues)
-            .WithOne(p=>p.ClimbingGym)
+            .WithOne(p=>p.ClimbingGyms)
             .HasForeignKey(p=>p.ClimbingGymId);
 
         // Notifications entity
@@ -153,35 +153,35 @@ public class AppDbContext : DbContext
             .HasForeignKey(p => p.ScalerId);
         
         // Category entity
-        builder.Entity<Category>().ToTable("Categories");
-        builder.Entity<Category>().HasKey(p => p.Id);
-        builder.Entity<Category>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<Category>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+        builder.Entity<Categories>().ToTable("Categories");
+        builder.Entity<Categories>().HasKey(p => p.Id);
+        builder.Entity<Categories>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Categories>().Property(p => p.Name).IsRequired().HasMaxLength(50);
         
         // relationships
         
-        builder.Entity<Category>()
+        builder.Entity<Categories>()
             .HasMany(p => p.CategoryGym)
-            .WithOne(p => p.Category)
+            .WithOne(p => p.Categories)
             .HasForeignKey(p => p.CategoryId);
         
         // CategoryGym entity
-        builder.Entity<CategoryGym>().ToTable("CategoryGym");
-        builder.Entity<CategoryGym>().HasKey(p => p.Id);
-        builder.Entity<CategoryGym>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<CategoryGym>().Property(p => p.CategoryId).IsRequired();
-        builder.Entity<CategoryGym>().Property(p => p.ClimbingGymId).IsRequired();
+        builder.Entity<CategoryGyms>().ToTable("CategoryGym");
+        builder.Entity<CategoryGyms>().HasKey(p => p.Id);
+        builder.Entity<CategoryGyms>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<CategoryGyms>().Property(p => p.CategoryId).IsRequired();
+        builder.Entity<CategoryGyms>().Property(p => p.ClimbingGymId).IsRequired();
         
         
         // relationships
         
-        builder.Entity<CategoryGym>()
-            .HasOne(p => p.ClimbingGym)
+        builder.Entity<CategoryGyms>()
+            .HasOne(p => p.ClimbingGyms)
             .WithMany(p => p.CategoryGyms)
             .HasForeignKey(p => p.ClimbingGymId);
         
-        builder.Entity<CategoryGym>()
-            .HasOne(p => p.Category)
+        builder.Entity<CategoryGyms>()
+            .HasOne(p => p.Categories)
             .WithMany(p => p.CategoryGym)
             .HasForeignKey(p => p.CategoryId);
         
@@ -196,50 +196,50 @@ public class AppDbContext : DbContext
         // relationships
         
         builder.Entity<Images>()
-            .HasOne(p => p.ClimbingGym)
+            .HasOne(p => p.ClimbingGyms)
             .WithMany(p => p.Images)
             .HasForeignKey(p => p.ClimbingGymId);
 
         // CompetitionGym entity
-        builder.Entity<CompetitionGym>().ToTable("CompetitionGym");
-        builder.Entity<CompetitionGym>().HasKey(p => p.Id);
-        builder.Entity<CompetitionGym>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<CompetitionGym>().Property(p => p.Name).IsRequired().HasMaxLength(50);
-        builder.Entity<CompetitionGym>().Property(p => p.Price).IsRequired();
-        builder.Entity<CompetitionGym>().Property(p => p.Date).IsRequired();
-        builder.Entity<CompetitionGym>().Property(p => p.ClimberGymId).IsRequired();
-        builder.Entity<CompetitionGym>().Property(p => p.type).IsRequired().HasMaxLength(50);
+        builder.Entity<CompetitionGyms>().ToTable("CompetitionGym");
+        builder.Entity<CompetitionGyms>().HasKey(p => p.Id);
+        builder.Entity<CompetitionGyms>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<CompetitionGyms>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+        builder.Entity<CompetitionGyms>().Property(p => p.Price).IsRequired();
+        builder.Entity<CompetitionGyms>().Property(p => p.Date).IsRequired();
+        builder.Entity<CompetitionGyms>().Property(p => p.ClimberGymId).IsRequired();
+        builder.Entity<CompetitionGyms>().Property(p => p.type).IsRequired().HasMaxLength(50);
 
         // relationships
 
-        builder.Entity<CompetitionGym>()
-            .HasOne(p => p.ClimbingGym)
+        builder.Entity<CompetitionGyms>()
+            .HasOne(p => p.ClimbingGyms)
             .WithMany(p => p.CompetitionGyms)
             .HasForeignKey(p => p.ClimberGymId);
         
-        builder.Entity<CompetitionGym>()
+        builder.Entity<CompetitionGyms>()
             .HasMany(p => p.CompetitionGymRankings)
-            .WithOne(p => p.CompetitionGym)
+            .WithOne(p => p.CompetitionGyms)
             .HasForeignKey(p => p.CompetitionGymId);
 
         // Comments entity
-        builder.Entity<Comment>().ToTable("Comment");
-        builder.Entity<Comment>().HasKey(p => p.Id);
-        builder.Entity<Comment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<Comment>().Property(p => p.Description).IsRequired().HasMaxLength(250);
-        builder.Entity<Comment>().Property(p => p.ClimbingGymId).IsRequired();
-        builder.Entity<Comment>().Property(p => p.ScalerId).IsRequired();
-        builder.Entity<Comment>().Property(p => p.Date).IsRequired();
-        builder.Entity<Comment>().Property(p=>p.Score).IsRequired();
+        builder.Entity<Comments>().ToTable("Comment");
+        builder.Entity<Comments>().HasKey(p => p.Id);
+        builder.Entity<Comments>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Comments>().Property(p => p.Description).IsRequired().HasMaxLength(250);
+        builder.Entity<Comments>().Property(p => p.ClimbingGymId).IsRequired();
+        builder.Entity<Comments>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<Comments>().Property(p => p.Date).IsRequired();
+        builder.Entity<Comments>().Property(p=>p.Score).IsRequired();
         
         // relationships
         
-        builder.Entity<Comment>()
-            .HasOne(p => p.ClimbingGym)
+        builder.Entity<Comments>()
+            .HasOne(p => p.ClimbingGyms)
             .WithMany(p => p.Comments)
             .HasForeignKey(p => p.ClimbingGymId);
         
-        builder.Entity<Comment>()
+        builder.Entity<Comments>()
             .HasOne(p=>p.Scaler)
             .WithMany(p=>p.Comments)
             .HasForeignKey(p=>p.ScalerId);
@@ -260,27 +260,27 @@ public class AppDbContext : DbContext
             .HasForeignKey(p => p.ScalerId);
         
         builder.Entity<CompetitionReservationClimber>()
-            .HasOne(p => p.CompetitionGym)
+            .HasOne(p => p.CompetitionGyms)
             .WithMany(p => p.CompetitionReservationClimbers)
             .HasForeignKey(p => p.CompetitionGymId);
         
         // CompetitionGymRankings entity
-        builder.Entity<CompetitionGymRanking>().ToTable("CompetitionGymRankings");
-        builder.Entity<CompetitionGymRanking>().HasKey(p => p.Id);
-        builder.Entity<CompetitionGymRanking>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<CompetitionGymRanking>().Property(p => p.CompetitionGymId).IsRequired();
-        builder.Entity<CompetitionGymRanking>().Property(p => p.ScalerId).IsRequired();
-        builder.Entity<CompetitionGymRanking>().Property(p => p.Score).IsRequired();
+        builder.Entity<CompetitionGymRankings>().ToTable("CompetitionGymRankings");
+        builder.Entity<CompetitionGymRankings>().HasKey(p => p.Id);
+        builder.Entity<CompetitionGymRankings>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<CompetitionGymRankings>().Property(p => p.CompetitionGymId).IsRequired();
+        builder.Entity<CompetitionGymRankings>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<CompetitionGymRankings>().Property(p => p.Score).IsRequired();
         
         // relationships
         
-        builder.Entity<CompetitionGymRanking>()
+        builder.Entity<CompetitionGymRankings>()
             .HasOne(p => p.Scaler)
             .WithMany(p => p.CompetitionGymRankings)
             .HasForeignKey(p => p.ScalerId);
         
-        builder.Entity<CompetitionGymRanking>()
-            .HasOne(p=>p.CompetitionGym)
+        builder.Entity<CompetitionGymRankings>()
+            .HasOne(p=>p.CompetitionGyms)
             .WithMany(p=>p.CompetitionGymRankings)
             .HasForeignKey(p=>p.CompetitionGymId);
         
@@ -304,7 +304,7 @@ public class AppDbContext : DbContext
             .HasForeignKey(p => p.ScalerId);
         
         builder.Entity<League>()
-            .HasOne(p=>p.ClimbingGym)
+            .HasOne(p=>p.ClimbingGyms)
             .WithMany(p=>p.Leagues)
             .HasForeignKey(p=>p.ClimbingGymId);
         
@@ -346,27 +346,27 @@ public class AppDbContext : DbContext
         
         // ClimbersLeagues entity
         
-        builder.Entity<ClimbersLeague>().ToTable("ClimbersLeagues");
-        builder.Entity<ClimbersLeague>().HasKey(p => p.Id);
-        builder.Entity<ClimbersLeague>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<ClimbersLeague>().Property(p => p.LeagueId).IsRequired();
-        builder.Entity<ClimbersLeague>().Property(p => p.ScalerId).IsRequired();
-        builder.Entity<ClimbersLeague>().Property(p => p.ClimbingGymId).IsRequired();
+        builder.Entity<ClimberLeagues>().ToTable("ClimbersLeagues");
+        builder.Entity<ClimberLeagues>().HasKey(p => p.Id);
+        builder.Entity<ClimberLeagues>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<ClimberLeagues>().Property(p => p.LeagueId).IsRequired();
+        builder.Entity<ClimberLeagues>().Property(p => p.ScalerId).IsRequired();
+        builder.Entity<ClimberLeagues>().Property(p => p.ClimbingGymId).IsRequired();
         
         // relationships
         
-        builder.Entity<ClimbersLeague>()
+        builder.Entity<ClimberLeagues>()
             .HasOne(p => p.Scaler)
             .WithMany(p => p.ClimbersLeagues)
             .HasForeignKey(p => p.ScalerId);
         
-        builder.Entity<ClimbersLeague>()
+        builder.Entity<ClimberLeagues>()
             .HasOne(p=>p.League)
             .WithMany(p=>p.ClimbersLeagues)
             .HasForeignKey(p=>p.LeagueId);
         
-        builder.Entity<ClimbersLeague>()
-            .HasOne(p=>p.ClimbingGym)
+        builder.Entity<ClimberLeagues>()
+            .HasOne(p=>p.ClimbingGyms)
             .WithMany(p=>p.ClimbersLeagues)
             .HasForeignKey(p=>p.ClimbingGymId);
         
@@ -421,7 +421,7 @@ public class AppDbContext : DbContext
         // relationships
         
         builder.Entity<Favorite>()
-            .HasOne(p => p.ClimbingGym)
+            .HasOne(p => p.ClimbingGyms)
             .WithMany(p => p.Favorites)
             .HasForeignKey(p => p.ClimbingGymId);
         

@@ -4,10 +4,10 @@ namespace TopWay.API.TopWay.Domain.Repositories;
 
 public interface IClimbingGymRepository
 {
-    Task<IEnumerable<ClimbingGym>> ListAsync();
-    Task AddAsync(ClimbingGym climbingGym);
-    Task<ClimbingGym> FindByIdAsync(int id);
-    Task<ClimbingGym> FindByNameAsync(string name);
-    void Update(ClimbingGym climbingGym);
-    void Delete(ClimbingGym climbingGym);
+    Task<IEnumerable<ClimbingGyms>> ListAsync();
+    Task AddAsync(ClimbingGyms climbingGyms);
+    Task<ClimbingGyms> FindByIdAsync(int id);
+    Task<ClimbingGyms> FindByNameAsync(string name);
+    void Update(ClimbingGyms climbingGyms);
+    void Delete(ClimbingGyms climbingGyms);
 }

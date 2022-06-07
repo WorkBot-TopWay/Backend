@@ -10,18 +10,18 @@ public class ResourceToModelProfile : Profile
     public ResourceToModelProfile()
     {
         CreateMap<SaveScalerResource, Scaler>();
-        CreateMap<SaveClimbingGymResource, ClimbingGym>();
+        CreateMap<SaveClimbingGymResource, ClimbingGyms>();
         CreateMap<SaveNotificationResource, Notification>();
-        CreateMap<SaveCategoryResource, Category>();
-        CreateMap<SaveCategoryGymResource, CategoryGym>();
+        CreateMap<SaveCategoryResource, Categories>();
+        CreateMap<SaveCategoryGymResource, CategoryGyms>();
         CreateMap<SaveImagesResource, Images>();
-        CreateMap<SaveCompetitionGymResource, CompetitionGym>();
-        CreateMap<SaveCommentResource, Comment>();
+        CreateMap<SaveCompetitionGymResource, CompetitionGyms>();
+        CreateMap<SaveCommentResource, Comments>();
         CreateMap<SaveCompetitionReservationClimberResource, CompetitionReservationClimber>();
-        CreateMap<SaveCompetitionGymRankingResource, CompetitionGymRanking>();
+        CreateMap<SaveCompetitionGymRankingResource, CompetitionGymRankings>();
         CreateMap<SaveLeagueResource, League>();
         CreateMap<SaveRequestResource, Request>();
-        CreateMap<SaveClimbersLeagueResource, ClimbersLeague>();
+        CreateMap<SaveClimbersLeagueResource, ClimberLeagues>();
         CreateMap<SaveCompetitionLeagueResource, CompetitionLeague>();
         CreateMap<SaveCompetitionLeagueRankingResource, CompetitionLeagueRanking>();
         CreateMap<SaveFavoriteResource, Favorite>();

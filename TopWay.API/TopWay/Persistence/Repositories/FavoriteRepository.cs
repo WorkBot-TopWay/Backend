@@ -23,6 +23,15 @@ public class FavoriteRepository: BaseRepository, IFavoriteRepository
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<ClimbingGyms>> FindClimbingGymByScalerIdAsync(int scalerId)
+    {
+        return await _context.ClimbingGyms
+            .Include(c => c.Favorites)
+            .Where(c => c.Favorites.Any(f => f.ScalerId == scalerId))
+            .ToListAsync();
+    }
+
+
     public async Task<Favorite> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId)
     {
         return (await _context.Favorites

@@ -32,6 +32,12 @@ public class CompetitionReservationClimberService : ICompetitionReservationClimb
         return await _competitionReservationClimberRepository.FindScalerByCompetitionIdAsync(competitionId);
     }
 
+    public async Task<IEnumerable<CompetitionReservationClimber>> FindByCompetitionIdAsync(int competitionId)
+    {
+        return await _competitionReservationClimberRepository.FindByCompetitionIdAsync(competitionId);
+    }
+
+
     public async Task<CompetitionReservationClimber> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
     {
         return await _competitionReservationClimberRepository.FindByCompetitionIdAndScalerIdAsync(competitionId, scalerId);
@@ -60,7 +66,7 @@ public class CompetitionReservationClimberService : ICompetitionReservationClimb
             return new CompetitionReservationClimberResponse("Scaler does not exist.");
         }
         competitionReservationClimber.Scaler = existingScaler;
-        competitionReservationClimber.CompetitionGym = existingCompetitionGym;
+        competitionReservationClimber.CompetitionGyms = existingCompetitionGym;
         competitionReservationClimber.ScalerId = scalerId;
         competitionReservationClimber.CompetitionGymId = competitionId;
         try

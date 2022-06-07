@@ -6,6 +6,7 @@ public interface IFavoriteRepository
 {
    Task<IEnumerable<Favorite>> ListAsync();
    Task<IEnumerable<Favorite>> FindByScalerIdAsync(int scalerId);
+   Task<IEnumerable<ClimbingGyms>> FindClimbingGymByScalerIdAsync(int scalerId);
    Task<Favorite> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId);
    Task<Favorite> FindByIdAsync(int id);
    Task AddAsync(Favorite favorite);

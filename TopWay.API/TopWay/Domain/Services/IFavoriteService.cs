@@ -7,6 +7,7 @@ public interface IFavoriteService
 {
     Task<IEnumerable<Favorite>> ListAsync();
     Task<IEnumerable<Favorite>> FindByScalerIdAsync(int scalerId);
+    Task<IEnumerable<ClimbingGyms>> FindClimbingGymByScalerIdAsync(int scalerId);
     Task<Favorite> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId);
     Task<Favorite> FindByIdAsync(int id);
     Task<FavoriteResponse> AddAsync(Favorite favorite, int climbingGymId, int scalerId);

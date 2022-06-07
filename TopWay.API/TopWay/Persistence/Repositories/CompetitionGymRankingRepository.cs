@@ -11,7 +11,7 @@ public class CompetitionGymRankingRepository: BaseRepository, ICompetitionGymRan
     {
     }
 
-    public async Task<IEnumerable<CompetitionGymRanking>> ListAsync()
+    public async Task<IEnumerable<CompetitionGymRankings>> ListAsync()
     {
         return await _context.CompetitionGymRankings.ToListAsync();
     }
@@ -24,32 +24,32 @@ public class CompetitionGymRankingRepository: BaseRepository, ICompetitionGymRan
            .ToListAsync();
     }
 
-    public async Task<IEnumerable<CompetitionGymRanking>> FindByCompetitionGymIdAsync(int competitionGymId)
+    public async Task<IEnumerable<CompetitionGymRankings>> FindByCompetitionGymIdAsync(int competitionGymId)
     {
         return await _context.CompetitionGymRankings
             .Where(c => c.CompetitionGymId == competitionGymId)
             .ToListAsync();
     }
 
-    public async Task<CompetitionGymRanking> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
+    public async Task<CompetitionGymRankings> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
     {
         return (await _context.CompetitionGymRankings
             .Where(c => c.CompetitionGymId == competitionId && c.ScalerId == scalerId)
             .FirstOrDefaultAsync())!;
     }
 
-    public async Task<CompetitionGymRanking> FindByIdAsync(int id)
+    public async Task<CompetitionGymRankings> FindByIdAsync(int id)
     {
         return (await _context.CompetitionGymRankings.FindAsync(id))!;
     }
 
-    public async Task AddAsync(CompetitionGymRanking competitionGymRanking)
+    public async Task AddAsync(CompetitionGymRankings competitionGymRankings)
     {
-        await _context.CompetitionGymRankings.AddAsync(competitionGymRanking);
+        await _context.CompetitionGymRankings.AddAsync(competitionGymRankings);
     }
 
-    public void Delete(CompetitionGymRanking competitionGymRanking)
+    public void Delete(CompetitionGymRankings competitionGymRankings)
     {
-        _context.CompetitionGymRankings.Remove(competitionGymRanking);
+        _context.CompetitionGymRankings.Remove(competitionGymRankings);
     }
 }

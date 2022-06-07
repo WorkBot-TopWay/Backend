@@ -20,10 +20,19 @@ public class CompetitionReservationClimberRepository : BaseRepository, ICompetit
     {
         return await _context.Scalers
             .Include(s => s.CompetitionReservationClimbers)
-            .ThenInclude(c => c.CompetitionGym)
+            .ThenInclude(c => c.CompetitionGyms)
             .Where(s => s.CompetitionReservationClimbers.Any(c => c.CompetitionGymId == competitionId))
             .ToListAsync();
     }
+
+    public async Task<IEnumerable<CompetitionReservationClimber>> FindByCompetitionIdAsync(int competitionId)
+    {
+        return await _context.CompetitionReservationClimbers
+            .Include(c => c.CompetitionGyms)
+            .Where(c => c.CompetitionGymId == competitionId)
+            .ToListAsync();
+    }
+
 
     public async Task<CompetitionReservationClimber> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
     {

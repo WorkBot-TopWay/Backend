@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using TopWay.API.Shared.Extensions;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Services;
@@ -10,26 +11,48 @@ namespace TopWay.API.TopWay.Controllers;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces("application/json")]
-public class RequestController : ControllerBase
+[SwaggerTag(" Create, Read and Delete a Requests")]
+public class RequestsController : ControllerBase
 {
     private readonly IRequestService _requestService;
     private readonly IMapper _mapper;
 
-    public RequestController(IRequestService requestService, IMapper mapper)
+    public RequestsController(IRequestService requestService, IMapper mapper)
     {
         _requestService = requestService;
         _mapper = mapper;
     }
 
     [HttpGet]
-    public async Task<IEnumerable<RequestResource>> GetAllAsync()
+    [SwaggerOperation(
+        Summary = "Get all requests and find by scaler id and league id",
+        Description = "Get all requests",
+        OperationId = "GetAllRequests",
+        Tags = new[] { "Requests" })]
+    public async  Task<IActionResult> GetAllAsync([FromQuery]string? scalerId=null, [FromQuery]string?leagueId=null)
     {
+        if (scalerId != null && leagueId!=null)
+        {
+            int idScaler = int.Parse(scalerId);
+            int idLeague = int.Parse(leagueId);
+            var request = await _requestService.FindLeagueIdAndScapeId(idLeague, idScaler);
+            if (request == null)
+                return NotFound();
+            var resource = _mapper.Map<Request, RequestResource>(request);
+            return Ok(resource);
+        }
+        
         var requests = await _requestService.GetAll();
         var resources = _mapper.Map<IEnumerable<Request>, IEnumerable<RequestResource>>(requests);
-        return resources;
+        return Ok(resources);
     }
 
     [HttpGet("{id}")]
+    [SwaggerOperation(
+        Summary = "Get request by id",
+        Description = "Get existing request by id",
+        OperationId = "GetRequestById",
+        Tags = new[] { "Requests" })]
     public async Task<IActionResult> GetByIdAsync(int id)
     {
         var request = await _requestService.FindByIdAsync(id);
@@ -38,28 +61,15 @@ public class RequestController : ControllerBase
         var resource = _mapper.Map<Request, RequestResource>(request);
         return Ok(resource);
     }
-
-    [HttpGet("findByLeagueIdAndScalerId")]
-    public async Task<IActionResult> FindByLeagueIdAndScalerId(int leagueId, int scalerId)
-    {
-        var request = await _requestService.FindLeagueIdAndScapeId(leagueId, scalerId);
-        if (request == null)
-            return NotFound();
-        var resource = _mapper.Map<Request, RequestResource>(request);
-        return Ok(resource);
-    }
-
-    [HttpGet("findRequestScalersByLeagueId")]
-    public async Task<ActionResult<IEnumerable<Scaler>>> FindRequestScalersByLeagueId(int leagueId)
-    {
-        var request = await _requestService.FindRequestScalerByLeagueId(leagueId);
-        if (request == null)
-            return NotFound();
-        var resource = _mapper.Map<IEnumerable<Scaler>, IEnumerable<ScalerResource>>(request);
-        return Ok(resource);
-    }
-        
+    
     [HttpPost]
+    [SwaggerResponse(200, "The operation was success", typeof(CategoriesResource))]
+    [SwaggerResponse(400, "The operation was unsuccess")]
+    [SwaggerOperation(
+        Summary = "Create request",
+        Description = "Create new request",
+        OperationId = "CreateRequest",
+        Tags = new[] { "Requests" })]
     public async Task<IActionResult> PostAsync([FromBody] SaveRequestResource resource, int leagueId, int scalerId)
     {
         if (!ModelState.IsValid)
@@ -76,6 +86,11 @@ public class RequestController : ControllerBase
     }
     
     [HttpDelete]
+    [SwaggerOperation(
+        Summary = "Delete request",
+        Description = "Delete existing request",
+        OperationId = "DeleteRequest",
+        Tags = new[] { "Requests" })]
     public async Task<IActionResult> DeleteAsync(int leagueId, int scalerId)
     {
         var result = await _requestService.Delete(leagueId, scalerId);

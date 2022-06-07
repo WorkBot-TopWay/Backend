@@ -11,34 +11,34 @@ public class CategoryRepository: BaseRepository, ICategoryRepository
     {
     }
 
-    public async Task<IEnumerable<Category>> ListAsync()
+    public async Task<IEnumerable<Categories>> ListAsync()
     {
         return await _context.Categories.ToListAsync();
     }
 
-    public async Task AddAsync(Category climbingGym)
+    public async Task AddAsync(Categories climbingGym)
     {
         await _context.Categories.AddAsync(climbingGym);
     }
 
-    public async Task<Category> FindByIdAsync(int id)
+    public async Task<Categories> FindByIdAsync(int id)
     {
         return (await _context.Categories.FindAsync(id))!;
     }
 
-    public async Task<Category> FindByNameAsync(string name)
+    public async Task<Categories> FindByNameAsync(string name)
     {
         return (await _context.Categories
             .Where(p=>p.Name == name)
             .FirstOrDefaultAsync())!;
     }
 
-    public void Update(Category climbingGym)
+    public void Update(Categories climbingGym)
     {
         _context.Categories.Update(climbingGym);
     }
 
-    public void Delete(Category climbingGym)
+    public void Delete(Categories climbingGym)
     {
         _context.Categories.Remove(climbingGym);
     }

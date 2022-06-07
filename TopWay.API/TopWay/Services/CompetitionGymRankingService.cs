@@ -23,7 +23,7 @@ public class CompetitionGymRankingService: ICompetitionGymRankingService
         _competitionGymRepository = competitionGymRepository;
     }
 
-    public async Task<IEnumerable<CompetitionGymRanking>> ListAsync()
+    public async Task<IEnumerable<CompetitionGymRankings>> ListAsync()
     {
         return await _competitionGymRankingRepository.ListAsync();
     }
@@ -33,22 +33,22 @@ public class CompetitionGymRankingService: ICompetitionGymRankingService
         return await _competitionGymRankingRepository.FindScalerByCompetitionIdAsync(competitionId);
     }
 
-    public async Task<IEnumerable<CompetitionGymRanking>> FindByCompetitionGymIdAsync(int competitionGymId)
+    public async Task<IEnumerable<CompetitionGymRankings>> FindByCompetitionGymIdAsync(int competitionGymId)
     {
         return await _competitionGymRankingRepository.FindByCompetitionGymIdAsync(competitionGymId);
     }
 
-    public async Task<CompetitionGymRanking> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
+    public async Task<CompetitionGymRankings> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId)
     {
         return await _competitionGymRankingRepository.FindByCompetitionIdAndScalerIdAsync(competitionId, scalerId);
     }
 
-    public async Task<CompetitionGymRanking> FindByIdAsync(int id)
+    public async Task<CompetitionGymRankings> FindByIdAsync(int id)
     {
         return await _competitionGymRankingRepository.FindByIdAsync(id);
     }
 
-    public async Task<CompetitionGymRankingResponse> AddAsync(CompetitionGymRanking competitionGymRanking, int competitionId, int scalerId)
+    public async Task<CompetitionGymRankingResponse> AddAsync(CompetitionGymRankings competitionGymRankings, int competitionId, int scalerId)
     {
         var existingCompetitionGymRanking = await _competitionGymRankingRepository.FindByCompetitionIdAndScalerIdAsync(competitionId, scalerId);
         var existingScaler = await _scalerRepository.FindByIdAsync(scalerId);
@@ -65,15 +65,15 @@ public class CompetitionGymRankingService: ICompetitionGymRankingService
         {
             return new CompetitionGymRankingResponse("Competition does not exist");
         }
-        competitionGymRanking.ScalerId = scalerId;
-        competitionGymRanking.CompetitionGymId = competitionId;
-        competitionGymRanking.Scaler = existingScaler;
-        competitionGymRanking.CompetitionGym = existingCompetitionGym;
+        competitionGymRankings.ScalerId = scalerId;
+        competitionGymRankings.CompetitionGymId = competitionId;
+        competitionGymRankings.Scaler = existingScaler;
+        competitionGymRankings.CompetitionGyms = existingCompetitionGym;
         try
         {
-            await _competitionGymRankingRepository.AddAsync(competitionGymRanking);
+            await _competitionGymRankingRepository.AddAsync(competitionGymRankings);
             await _unitOfWork.CompleteAsync();
-            return new CompetitionGymRankingResponse(competitionGymRanking);
+            return new CompetitionGymRankingResponse(competitionGymRankings);
         }
         catch (Exception ex)
         {

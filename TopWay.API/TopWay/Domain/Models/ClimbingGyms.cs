@@ -1,6 +1,6 @@
 ﻿namespace TopWay.API.TopWay.Domain.Models;
 
-public class ClimbingGym
+public class ClimbingGyms
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -13,12 +13,12 @@ public class ClimbingGym
     public string LogoUrl { get; set; }
     public string type { get; set; }
     
-    public IList<CategoryGym> CategoryGyms { get; set; } = new List<CategoryGym>();
+    public IList<CategoryGyms> CategoryGyms { get; set; } = new List<CategoryGyms>();
     public IList<Images> Images { get; set; } = new List<Images>();
-    public IList<CompetitionGym> CompetitionGyms { get; set; } = new List<CompetitionGym>();
-    public IList<Comment> Comments { get; set; } = new List<Comment>();
+    public IList<CompetitionGyms> CompetitionGyms { get; set; } = new List<CompetitionGyms>();
+    public IList<Comments> Comments { get; set; } = new List<Comments>();
     public IList<League> Leagues { get; set; } = new List<League>();
-    public IList<ClimbersLeague> ClimbersLeagues { get; set; } = new List<ClimbersLeague>();
+    public IList<ClimberLeagues> ClimbersLeagues { get; set; } = new List<ClimberLeagues>();
     
     public IList<Favorite> Favorites { get; set; } = new List<Favorite>();
 }

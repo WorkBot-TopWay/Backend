@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using TopWay.API.Shared.Extensions;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Services;
@@ -10,6 +11,7 @@ namespace TopWay.API.TopWay.Controllers;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces("application/json")]
+[SwaggerTag(" Create, Read and Delete a Images")]
 public class ImagesController: ControllerBase
 {
     private readonly IImagesService _imageService;
@@ -22,14 +24,31 @@ public class ImagesController: ControllerBase
     }
     
     [HttpGet]
-    public async Task<IEnumerable<ImagesResource>> GetAllAsync()
+    [SwaggerOperation(
+        Summary = "Get all images",
+        Description = "Get all images",
+        OperationId = "GetAllImages",
+        Tags = new[] { "Images" })]
+    public async Task<IActionResult> GetAllAsync([FromQuery] string ? climbingGymId=null)
     {
+        if (climbingGymId != null)
+        {
+            int id = int.Parse(climbingGymId);
+            var image = await _imageService.FindByClimbingGymIdAsync(id);
+            var resource = _mapper.Map<IEnumerable<Images>, IEnumerable<ImagesResource>>(image);
+            return Ok(resource);
+        }
         var images = await _imageService.FindAllAsync();
         var resources = _mapper.Map<IEnumerable<Images>, IEnumerable<ImagesResource>>(images);
-        return resources;
+        return Ok(resources);
     }
     
     [HttpGet("{id}")]
+    [SwaggerOperation(
+        Summary ="Get image by id",
+        Description = "Get existing image by id",
+        OperationId = "GetImageById",
+        Tags = new[] { "Images" })]
     public async Task<IActionResult> GetByIdAsync(int id)
     {
         var image = await _imageService.FindByIdAsync(id);
@@ -39,15 +58,14 @@ public class ImagesController: ControllerBase
         return Ok(resources);
     }
     
-    [HttpGet("findByClimbingGymId/{id}")]
-    public async Task<IEnumerable<ImagesResource>> GetByClimbingGymIdAsync(int id)
-    {
-        var images = await _imageService.FindByClimbingGymIdAsync(id);
-        var resources = _mapper.Map<IEnumerable<Images>, IEnumerable<ImagesResource>>(images);
-        return resources;
-    }
-
     [HttpPost]
+    [SwaggerResponse(200, "The operation was success", typeof(CategoriesResource))]
+    [SwaggerResponse(400, "The operation was unsuccess")]
+    [SwaggerOperation(
+        Summary = "Create new image",
+        Description = "Create new image",
+        OperationId = "CreateImage",
+        Tags = new[] { "Images" })]
     public async Task<IActionResult> PostAsync([FromBody] SaveImagesResource resource, int climbingGymId)
     {
         if (!ModelState.IsValid)
@@ -61,6 +79,11 @@ public class ImagesController: ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [SwaggerOperation(
+        Summary = "Delete image by id",
+        Description = "Delete existing image by id",
+        OperationId = "DeleteImageById",
+        Tags = new[] { "Images" })]
     public async Task<IActionResult> DeleteAsync(int id)
     {
         var result = await _imageService.DeleteAsync(id);

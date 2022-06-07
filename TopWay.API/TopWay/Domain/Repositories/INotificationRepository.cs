@@ -4,6 +4,7 @@ namespace TopWay.API.TopWay.Domain.Repositories;
 
 public interface INotificationRepository
 {
+    Task<IEnumerable<Notification>> FindAllAsync();
     Task<IEnumerable<Notification>> FindByScalerIdAsync(int scalerId);
     
     Task<Notification> FindByIdAsync(int id);

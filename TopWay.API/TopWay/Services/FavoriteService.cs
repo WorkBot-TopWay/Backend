@@ -31,6 +31,12 @@ public class FavoriteService: IFavoriteService
         return await _favoriteRepository.FindByScalerIdAsync(scalerId);
     }
 
+    public async Task<IEnumerable<ClimbingGyms>> FindClimbingGymByScalerIdAsync(int scalerId)
+    {
+        return await _favoriteRepository.FindClimbingGymByScalerIdAsync(scalerId);
+    }
+
+
     public async Task<Favorite> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId)
     {
         return await _favoriteRepository.FindByClimbingGymIdAndScalerIdAsync(climbingGymId, scalerId);
@@ -59,13 +65,13 @@ public class FavoriteService: IFavoriteService
             return new FavoriteResponse("Climbing gym not found");
         }
         favorite.Scaler = existingScaler;
-        favorite.ClimbingGym = existingClimbingGym;
+        favorite.ClimbingGyms = existingClimbingGym;
         favorite.ScalerId = scalerId;
         favorite.ClimbingGymId = climbingGymId;
 
         try
         {
-            favorite.ClimbingGym = existingClimbingGym;
+            favorite.ClimbingGyms = existingClimbingGym;
             favorite.Scaler = existingScaler;
             await _favoriteRepository.AddAsync(favorite);
             await _unitOfWork.CompleteAsync();

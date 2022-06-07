@@ -52,7 +52,7 @@ public class LeagueService : ILeagueService
             return new LeagueResponse("Scale not found.");
         }
 
-        league.ClimbingGym = existingClimbingGym;
+        league.ClimbingGyms = existingClimbingGym;
         league.Scaler = existingScale;
         league.ScalerId = scaleId;
         league.ClimbingGymId = climbingGymId;
@@ -84,7 +84,7 @@ public class LeagueService : ILeagueService
         league.NumberParticipants = existingLeague.NumberParticipants;
         league.ScalerId = existingLeague.ScalerId;
         league.ClimbingGymId = existingLeague.ClimbingGymId;
-        league.ClimbingGym = existingLeague.ClimbingGym;
+        league.ClimbingGyms = existingLeague.ClimbingGyms;
         league.Scaler = existingLeague.Scaler;
         try
         {

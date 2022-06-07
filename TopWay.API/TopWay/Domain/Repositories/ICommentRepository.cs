@@ -4,11 +4,11 @@ namespace TopWay.API.TopWay.Domain.Repositories;
 
 public interface ICommentRepository
 {
-    Task<IEnumerable<Comment>> ListAsync();
-    Task<IEnumerable<Comment>> FindByClimbingGymIdAsync(int climbingGymId);
-    Task<Comment> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId);
-    Task<Comment> FindByIdAsync(int id);
-    Task AddAsync(Comment comment);
-    void UpdateAsync(Comment comment);
-    void Delete(Comment comment);
+    Task<IEnumerable<Comments>> ListAsync();
+    Task<IEnumerable<Comments>> FindByClimbingGymIdAsync(int climbingGymId);
+    Task<Comments> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId);
+    Task<Comments> FindByIdAsync(int id);
+    Task AddAsync(Comments comments);
+    void UpdateAsync(Comments comments);
+    void Delete(Comments comments);
 }

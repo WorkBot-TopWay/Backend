@@ -20,27 +20,27 @@ public class CommentService: ICommentService
         _climbingGymRepository = climbingGymRepository;
     }
 
-    public async Task<IEnumerable<Comment>> ListAsync()
+    public async Task<IEnumerable<Comments>> ListAsync()
     {
         return await _commentRepository.ListAsync();
     }
 
-    public async Task<IEnumerable<Comment>> FindByClimbingGymIdAsync(int climbingGymId)
+    public async Task<IEnumerable<Comments>> FindByClimbingGymIdAsync(int climbingGymId)
     {
         return await _commentRepository.FindByClimbingGymIdAsync(climbingGymId);
     }
 
-    public async Task<Comment> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId)
+    public async Task<Comments> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId)
     {
         return await _commentRepository.FindByClimbingGymIdAndScalerIdAsync(climbingGymId, scalerId);
     }
 
-    public async Task<Comment> FindByIdAsync(int id)
+    public async Task<Comments> FindByIdAsync(int id)
     {
         return await _commentRepository.FindByIdAsync(id);
     }
 
-    public async Task<CommentResponse> AddAsync(Comment comment, int climbingGymId, int scalerId)
+    public async Task<CommentResponse> AddAsync(Comments comments, int climbingGymId, int scalerId)
     {
        var existingScaler = await _scalerRepository.FindByIdAsync(scalerId);
        var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
@@ -57,20 +57,20 @@ public class CommentService: ICommentService
        {
            return new CommentResponse("Climbing gym not found.");
        }
-       comment.Date = DateTime.Now;
-       comment.Scaler = existingScaler;
-       comment.ClimbingGym = existingClimbingGym;
-       comment.ScalerId = scalerId;
-       comment.ClimbingGymId = climbingGymId;
+       comments.Date = DateTime.Now;
+       comments.Scaler = existingScaler;
+       comments.ClimbingGyms = existingClimbingGym;
+       comments.ScalerId = scalerId;
+       comments.ClimbingGymId = climbingGymId;
     
        try
        {
-           comment.ClimbingGym = existingClimbingGym;
-           comment.Scaler = existingScaler;
-           await _commentRepository.AddAsync(comment);
+           comments.ClimbingGyms = existingClimbingGym;
+           comments.Scaler = existingScaler;
+           await _commentRepository.AddAsync(comments);
            await _unitOfWork.CompleteAsync();
 
-           return new CommentResponse(comment);
+           return new CommentResponse(comments);
        }
        catch (Exception ex)
        {
@@ -79,7 +79,7 @@ public class CommentService: ICommentService
         
     }
 
-    public async Task<CommentResponse> UpdateAsync(Comment comment, int climbingGymId, int scalerId)
+    public async Task<CommentResponse> UpdateAsync(Comments comments, int climbingGymId, int scalerId)
     {
         var existingComment =await _commentRepository.FindByClimbingGymIdAndScalerIdAsync(climbingGymId, scalerId);
         if (existingComment == null)
@@ -87,8 +87,8 @@ public class CommentService: ICommentService
             return new CommentResponse("Comment not found.");
         }
         existingComment.Date = DateTime.Now;
-        existingComment.Description = comment.Description;
-        existingComment.Score = comment.Score;
+        existingComment.Description = comments.Description;
+        existingComment.Score = comments.Score;
         try
         {
             _commentRepository.UpdateAsync(existingComment);

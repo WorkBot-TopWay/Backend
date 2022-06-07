@@ -3,9 +3,9 @@ using TopWay.API.TopWay.Domain.Models;
 
 namespace TopWay.API.TopWay.Domain.Services.Communication;
 
-public class CategoryResponse: BaseResponse<Category>
+public class CategoryResponse: BaseResponse<Categories>
 {
-    public CategoryResponse(Category resource) : base(resource)
+    public CategoryResponse(Categories resource) : base(resource)
     {
     }
 

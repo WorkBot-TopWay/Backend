@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using TopWay.API.Shared.Extensions;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Services;
@@ -7,27 +8,52 @@ using TopWay.API.TopWay.Resources;
 
 namespace TopWay.API.TopWay.Controllers;
 
-[Route("/api/v1/[controller]")]
-public class FavoriteController: ControllerBase
+[ApiController]
+[Route("/api/v1/favorites")]
+[Produces("application/json")]
+[SwaggerTag(" Create, Read, Update and Delete favorites")]
+public class FavoritesController: ControllerBase
 {
     private readonly IFavoriteService _favoriteService;
     private readonly IMapper _mapper;
     
-    public FavoriteController(IFavoriteService favoriteService, IMapper mapper)
+    public FavoritesController(IFavoriteService favoriteService, IMapper mapper)
     {
         _favoriteService = favoriteService;
         _mapper = mapper;
     }
     
     [HttpGet]
-    public async Task<IEnumerable<FavoriteResource>> GetAllAsync()
+    [SwaggerOperation(
+        Summary = "Get all favorites or find by climbing gym id and scaler id",
+        Description = "Get all favorites or find by climbing gym id and scaler id",
+        OperationId = "GetFavorites",
+        Tags = new[] { "Favorites" })]
+    public async Task<IActionResult> GetAllAsync([FromQuery] string ? climbingGymId=null, [FromQuery] string ? scalerId=null)
     {
+        if(climbingGymId != null && scalerId != null)
+        {
+            int ClimbingGymId = int.Parse(climbingGymId);
+            int ScalerId = int.Parse(scalerId);
+            var favorites = await _favoriteService.FindByClimbingGymIdAndScalerIdAsync(ClimbingGymId, ScalerId);
+            if (favorites == null)
+            {
+                return NotFound();
+            }
+            var resource = _mapper.Map<Favorite, FavoriteResource>(favorites);
+            return Ok(resource);
+        }
         var favorite = await _favoriteService.ListAsync();
         var resources = _mapper.Map<IEnumerable<Favorite>, IEnumerable<FavoriteResource>>(favorite);
-        return resources;
+        return Ok(resources);
     }
     
     [HttpGet("findByScalerId/{id}")]
+    [SwaggerOperation(
+        Summary = "Find by scaler id",
+        Description = "Find existing favorite by scaler id",
+        OperationId = "FindByScalerId",
+        Tags = new[] { "Favorites" })]
     public async Task<IEnumerable<FavoriteResource>> FindByScalerIdAsync(int id)
     {
         var favorite = await _favoriteService.FindByScalerIdAsync(id);
@@ -35,19 +61,15 @@ public class FavoriteController: ControllerBase
         return resources;
     }
     
-    [HttpGet("FindByClimbingGymIdAndScalerId/")]
-    public async Task<IActionResult> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId)
-    {
-        var favorite = await _favoriteService.FindByClimbingGymIdAndScalerIdAsync(climbingGymId, scalerId);
-        if (favorite == null)
-        {
-            return NotFound();
-        }
-        var resource = _mapper.Map<Favorite, FavoriteResource>(favorite);
-        return Ok(resource);
-    }
 
     [HttpPost]
+    [SwaggerResponse(200, "The operation was success", typeof(CategoriesResource))]
+    [SwaggerResponse(400, "The operation was unsuccess")]
+    [SwaggerOperation(
+        Summary = "Create a new favorite",
+        Description = "Create a new favorite",
+        OperationId = "CreateFavorite",
+        Tags = new[] { "Favorites" })]
     public async Task<IActionResult> PostAsync([FromBody] SaveFavoriteResource resource, int climbingGymId,
         int scalerId)
     {
@@ -62,6 +84,11 @@ public class FavoriteController: ControllerBase
     }
 
     [HttpPut("{id}")]
+    [SwaggerOperation(
+        Summary = "Update an existing favorite",
+        Description = "Update an existing favorite",
+        OperationId = "UpdateFavorite",
+        Tags = new[] { "Favorites" })]
     public async Task<IActionResult> PutAsync(int id, [FromBody] SaveFavoriteResource resource, int climbingGymId,
         int scalerId)
     {
@@ -77,6 +104,11 @@ public class FavoriteController: ControllerBase
 
 
     [HttpDelete("{id}")]
+    [SwaggerOperation(
+        Summary = "Delete an existing favorite",
+        Description = "Delete an existing favorite",
+        OperationId = "DeleteFavorite",
+        Tags = new[] { "Favorites" })]
     public async Task<IActionResult> DeleteAsync(int climbingGymId, int scalerId)
     {
         var result = await _favoriteService.Delete(climbingGymId, scalerId);

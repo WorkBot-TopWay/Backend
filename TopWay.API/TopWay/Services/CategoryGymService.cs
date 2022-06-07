@@ -22,32 +22,32 @@ public class CategoryGymService : ICategoryGymService
         _categoryRepository = categoryRepository;
     }
 
-    public async Task<IEnumerable<CategoryGym>> GetAll()
+    public async Task<IEnumerable<CategoryGyms>> GetAll()
     {
         return await _categoryGymRepository.GetAll();
     }
 
-    public async Task<IEnumerable<ClimbingGym>> FindClimbingGymsByCategoryIdAsync(int categoryId)
+    public async Task<IEnumerable<ClimbingGyms>> FindClimbingGymsByCategoryIdAsync(int categoryId)
     {
         return await _categoryGymRepository.FindClimbingGymsByCategoryIdAsync(categoryId);
     }
 
-    public async Task<IEnumerable<Category>> FindCategoriesByGymIdAsync(int gymId)
+    public async Task<IEnumerable<Categories>> FindCategoriesByGymIdAsync(int gymId)
     {
         return await _categoryGymRepository.FindCategoriesByGymIdAsync(gymId);
     }
 
-    public async Task<CategoryGym> FindByCategoryIdAndClimbingGymIdAsync(int categoryId, int climbingGymId)
+    public async Task<CategoryGyms> FindByCategoryIdAndClimbingGymIdAsync(int categoryId, int climbingGymId)
     {
         return await _categoryGymRepository.FindByCategoryIdAndClimbingGymIdAsync(categoryId, climbingGymId);
     }
 
-    public async Task<CategoryGym> FindByIdAsync(int id)
+    public async Task<CategoryGyms> FindByIdAsync(int id)
     {
         return await _categoryGymRepository.FindByIdAsync(id);
     }
 
-    public async Task<CategoryGymResponse> SaveAsync(CategoryGym categoryGym, int climbingGymId, int categoryId)
+    public async Task<CategoryGymResponse> SaveAsync(CategoryGyms categoryGyms, int climbingGymId, int categoryId)
     {
         var existingCategory = await _categoryRepository.FindByIdAsync(categoryId);
         var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
@@ -66,17 +66,17 @@ public class CategoryGymService : ICategoryGymService
             return new CategoryGymResponse("Climbing gym not found.");
         }
 
-        categoryGym.CategoryId = existingCategory.Id;
-        categoryGym.ClimbingGymId = existingClimbingGym.Id;
-        categoryGym.CategoryName = existingCategory.Name;
-        categoryGym.ClimbingGymName = existingClimbingGym.Name;
-        categoryGym.Category = existingCategory;
-        categoryGym.ClimbingGym = existingClimbingGym;
+        categoryGyms.CategoryId = existingCategory.Id;
+        categoryGyms.ClimbingGymId = existingClimbingGym.Id;
+        categoryGyms.CategoryName = existingCategory.Name;
+        categoryGyms.ClimbingGymName = existingClimbingGym.Name;
+        categoryGyms.Categories = existingCategory;
+        categoryGyms.ClimbingGyms = existingClimbingGym;
         try
         {
-            await _categoryGymRepository.AddAsync(categoryGym);
+            await _categoryGymRepository.AddAsync(categoryGyms);
             await _unitOfWork.CompleteAsync();
-            return new CategoryGymResponse(categoryGym);
+            return new CategoryGymResponse(categoryGyms);
         }
         catch (Exception ex)
         {

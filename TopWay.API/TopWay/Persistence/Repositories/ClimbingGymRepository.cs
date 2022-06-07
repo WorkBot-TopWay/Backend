@@ -11,35 +11,35 @@ public class ClimbingGymRepository : BaseRepository, IClimbingGymRepository
     {
     }
 
-    public async Task<IEnumerable<ClimbingGym>> ListAsync()
+    public async Task<IEnumerable<ClimbingGyms>> ListAsync()
     {
         return await _context.ClimbingGyms.ToListAsync();
     }
 
-    public async Task AddAsync(ClimbingGym climbingGym)
+    public async Task AddAsync(ClimbingGyms climbingGyms)
     {
-        await _context.ClimbingGyms.AddAsync(climbingGym);
+        await _context.ClimbingGyms.AddAsync(climbingGyms);
     }
 
-    public async Task<ClimbingGym> FindByIdAsync(int id)
+    public async Task<ClimbingGyms> FindByIdAsync(int id)
     {
         return (await _context.ClimbingGyms.FindAsync(id))!;
     }
 
-    public async Task<ClimbingGym> FindByNameAsync(string name)
+    public async Task<ClimbingGyms> FindByNameAsync(string name)
     {
         return (await _context.ClimbingGyms
             .Where(p=>p.Name == name)
             .FirstOrDefaultAsync())!;
     }
 
-    public void Update(ClimbingGym climbingGym)
+    public void Update(ClimbingGyms climbingGyms)
     {
-        _context.ClimbingGyms.Update(climbingGym);
+        _context.ClimbingGyms.Update(climbingGyms);
     }
 
-    public void Delete(ClimbingGym climbingGym)
+    public void Delete(ClimbingGyms climbingGyms)
     {
-        _context.ClimbingGyms.Remove(climbingGym);
+        _context.ClimbingGyms.Remove(climbingGyms);
     }
 }

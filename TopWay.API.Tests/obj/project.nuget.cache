@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oBCQUnnmQVnUZZvCGOvcZ/o5i3++ZjTNSHpM2zDId2lBom9nQGXdwNSnvUrFoevbx7o96jakmPpSnXdsi+Z8tA==",
+  "dgSpecHash": "vErJknvfronEHkyjvxC5Z99tQcJdLeVE5m1wDlwKDP0Z3EabssVWEFWuyL18nKBRi0e0TdwJq8hLwFEy6ui46A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Backend\\Backend\\TopWay.API.Tests\\TopWay.API.Tests.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\Sho Lee\\.nuget\\packages\\microsoft.net.test.sdk\\17.0.0\\microsoft.net.test.sdk.17.0.0.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Sho Lee\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.0.0\\microsoft.testplatform.objectmodel.17.0.0.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\microsoft.testplatform.testhost\\17.0.0\\microsoft.testplatform.testhost.17.0.0.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
@@ -43,6 +44,9 @@
     "C:\\Users\\Sho Lee\\.nuget\\packages\\specflow.plus.livingdocplugin\\3.9.57\\specflow.plus.livingdocplugin.3.9.57.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\specflow.tools.msbuild.generation\\3.9.22\\specflow.tools.msbuild.generation.3.9.22.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\specflow.xunit\\3.9.22\\specflow.xunit.3.9.22.nupkg.sha512",
+    "C:\\Users\\Sho Lee\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.3.1\\swashbuckle.aspnetcore.annotations.6.3.1.nupkg.sha512",
+    "C:\\Users\\Sho Lee\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.1\\swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
+    "C:\\Users\\Sho Lee\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.1\\swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

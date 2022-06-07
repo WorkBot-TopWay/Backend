@@ -3,9 +3,9 @@ using TopWay.API.TopWay.Domain.Models;
 
 namespace TopWay.API.TopWay.Domain.Services.Communication;
 
-public class CommentResponse: BaseResponse<Comment>
+public class CommentResponse: BaseResponse<Comments>
 {
-    public CommentResponse(Comment resource) : base(resource)
+    public CommentResponse(Comments resource) : base(resource)
     {
     }
 

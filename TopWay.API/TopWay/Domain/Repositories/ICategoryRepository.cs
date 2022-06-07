@@ -4,10 +4,10 @@ namespace TopWay.API.TopWay.Domain.Repositories;
 
 public interface ICategoryRepository
 {
-    Task<IEnumerable<Category>> ListAsync();
-    Task AddAsync(Category climbingGym);
-    Task<Category> FindByIdAsync(int id);
-    Task<Category> FindByNameAsync(string name);
-    void Update(Category climbingGym);
-    void Delete(Category climbingGym);
+    Task<IEnumerable<Categories>> ListAsync();
+    Task AddAsync(Categories climbingGym);
+    Task<Categories> FindByIdAsync(int id);
+    Task<Categories> FindByNameAsync(string name);
+    void Update(Categories climbingGym);
+    void Delete(Categories climbingGym);
 }

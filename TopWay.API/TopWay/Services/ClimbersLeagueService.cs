@@ -23,7 +23,7 @@ public class ClimbersLeagueService: IClimbersLeagueService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<IEnumerable<ClimbersLeague>> GetAll()
+    public async Task<IEnumerable<ClimberLeagues>> GetAll()
     {
         return await _climbersLeagueRepository.GetAll();
     }
@@ -33,17 +33,17 @@ public class ClimbersLeagueService: IClimbersLeagueService
         return await _climbersLeagueRepository.FindScalersByLeagueAndClimbingGymId(leagueId, climbingGymId);
     }
 
-    public async Task<ClimbersLeague> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId)
+    public async Task<ClimberLeagues> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId)
     {
         return await _climbersLeagueRepository.FindByClimbingGymIdAndScalerIdAndLeagueId(climbingGymId, scalerId, leagueId);
     }
 
-    public async Task<ClimbersLeague> FindByIdAsync(int id)
+    public async Task<ClimberLeagues> FindByIdAsync(int id)
     {
         return await _climbersLeagueRepository.FindByIdAsync(id);
     }
 
-    public async Task<ClimbersLeagueResponse> AddAsync(ClimbersLeague climbersLeague, int climbingGymId, int scalerId, int leagueId)
+    public async Task<ClimbersLeagueResponse> AddAsync(ClimberLeagues climberLeagues, int climbingGymId, int scalerId, int leagueId)
     {
        var existingScalers = await _scalerRepository.FindByIdAsync(scalerId);
        var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
@@ -72,15 +72,15 @@ public class ClimbersLeagueService: IClimbersLeagueService
        }
        try
        {
-           climbersLeague.ClimbingGym = existingClimbingGym;
-           climbersLeague.ClimbingGymId = existingClimbingGym.Id;
-           climbersLeague.Scaler = existingScalers;
-           climbersLeague.ScalerId = existingScalers.Id;
-           climbersLeague.League = existingLeague;
-           climbersLeague.LeagueId = existingLeague.Id;
-           await _climbersLeagueRepository.AddAsync(climbersLeague);
+           climberLeagues.ClimbingGyms = existingClimbingGym;
+           climberLeagues.ClimbingGymId = existingClimbingGym.Id;
+           climberLeagues.Scaler = existingScalers;
+           climberLeagues.ScalerId = existingScalers.Id;
+           climberLeagues.League = existingLeague;
+           climberLeagues.LeagueId = existingLeague.Id;
+           await _climbersLeagueRepository.AddAsync(climberLeagues);
            await _unitOfWork.CompleteAsync();
-           return new ClimbersLeagueResponse(climbersLeague);
+           return new ClimbersLeagueResponse(climberLeagues);
        }
        catch (Exception ex)
        {

@@ -11,38 +11,38 @@ public class CompetitionGymRepository : BaseRepository, ICompetitionGymRepositor
     {
     }
 
-    public async Task<IEnumerable<CompetitionGym>> ListAsync()
+    public async Task<IEnumerable<CompetitionGyms>> ListAsync()
     {
         return await _context.CompetitionGyms.ToListAsync();
     }
 
-    public async Task<IEnumerable<CompetitionGym>> FindByClimbingGymIdAsync(int climbingGymId)
+    public async Task<IEnumerable<CompetitionGyms>> FindByClimbingGymIdAsync(int climbingGymId)
     {
         return await _context.CompetitionGyms
-            .Include(c => c.ClimbingGym)
+            .Include(c => c.ClimbingGyms)
             .Where(c => c.ClimberGymId == climbingGymId)
             .ToListAsync();
     }
 
-    public async Task<CompetitionGym> FindByIdAsync(int id)
+    public async Task<CompetitionGyms> FindByIdAsync(int id)
     {
         return (await _context.CompetitionGyms
-            .Include(c => c.ClimbingGym)
+            .Include(c => c.ClimbingGyms)
             .FirstOrDefaultAsync(c => c.Id == id))!;
     }
 
-    public async Task AddAsync(CompetitionGym competitionGym)
+    public async Task AddAsync(CompetitionGyms competitionGyms)
     {
-        await _context.CompetitionGyms.AddAsync(competitionGym);
+        await _context.CompetitionGyms.AddAsync(competitionGyms);
     }
 
-    public void Update(CompetitionGym competitionGym)
+    public void Update(CompetitionGyms competitionGyms)
     {
-        _context.CompetitionGyms.Update(competitionGym);
+        _context.CompetitionGyms.Update(competitionGyms);
     }
 
-    public void Delete(CompetitionGym competitionGym)
+    public void Delete(CompetitionGyms competitionGyms)
     {
-        _context.CompetitionGyms.Remove(competitionGym);
+        _context.CompetitionGyms.Remove(competitionGyms);
     }
 }

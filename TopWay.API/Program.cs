@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using TopWay.API.TopWay.Domain.Repositories;
 using TopWay.API.TopWay.Domain.Services;
 using TopWay.API.TopWay.Mapping;
@@ -19,6 +20,23 @@ builder.Services.AddDbContext<AppDbContext>(
         .LogTo(Console.WriteLine, LogLevel.Information)
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors());
+
+// OpenAPI Configuration
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+    Version = "v1",
+    Title = "TopWay API",
+    Description = "TopWay Web Service",
+    Contact = new OpenApiContact
+    {
+        Name = "TopWay",
+        Url = new Uri("https://topway.pe")
+    }
+    });
+    options.EnableAnnotations();
+});
 
 
 //Add lower case routing

@@ -18,6 +18,11 @@ public class NotificationService : INotificationService
         _scalerRepository = scalerRepository;
     }
 
+    public async Task<IEnumerable<Notification>> FindAllAsync()
+    {
+        return await _notificationRepository.FindAllAsync();
+    }
+
     public async Task<IEnumerable<Notification>> FindByScalerIdAsync(int scalerId)
     {
        var existingScaler = await _scalerRepository.FindByIdAsync(scalerId);

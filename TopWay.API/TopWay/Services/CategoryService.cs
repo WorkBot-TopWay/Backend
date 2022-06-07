@@ -16,29 +16,29 @@ public class CategoryService : ICategoryService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<IEnumerable<Category>> ListAsync()
+    public async Task<IEnumerable<Categories>> ListAsync()
     {
         return await _categoryRepository.ListAsync();
     }
 
-    public async Task<Category> FindByIdAsync(int id)
+    public async Task<Categories> FindByIdAsync(int id)
     {
         return await _categoryRepository.FindByIdAsync(id);
     }
 
-    public async Task<Category> FindByNameAsync(string name)
+    public async Task<Categories> FindByNameAsync(string name)
     {
         return await _categoryRepository.FindByNameAsync(name);
     }
 
-    public async Task<CategoryResponse> SaveAsync(Category category)
+    public async Task<CategoryResponse> SaveAsync(Categories categories)
     {
         try
         {
-            await _categoryRepository.AddAsync(category);
+            await _categoryRepository.AddAsync(categories);
             await _unitOfWork.CompleteAsync();
 
-            return new CategoryResponse(category);
+            return new CategoryResponse(categories);
         }
         catch (Exception ex)
         {
@@ -47,7 +47,7 @@ public class CategoryService : ICategoryService
         }
     }
 
-    public async Task<CategoryResponse> UpdateAsync(int id, Category climbingGym)
+    public async Task<CategoryResponse> UpdateAsync(int id, Categories climbingGym)
     {
         var existingCategory = await _categoryRepository.FindByIdAsync(id);
         if (existingCategory == null)

@@ -14,12 +14,12 @@ public class Scaler
     public string UrlPhoto { get; set; }
     public string Type { get; set; }
     public IList<Notification> Notifications { get; set; } = new List<Notification>();
-    public IList<Comment> Comments { get; set; } = new List<Comment>();
+    public IList<Comments> Comments { get; set; } = new List<Comments>();
     public IList<CompetitionReservationClimber> CompetitionReservationClimbers { get; set; } = new List<CompetitionReservationClimber>();
-    public IList<CompetitionGymRanking> CompetitionGymRankings { get; set; } = new List<CompetitionGymRanking>();
+    public IList<CompetitionGymRankings> CompetitionGymRankings { get; set; } = new List<CompetitionGymRankings>();
     public IList<League> Leagues { get; set; } = new List<League>();
     public IList<Request> Requests { get; set; } = new List<Request>();
-    public IList<ClimbersLeague> ClimbersLeagues { get; set; } = new List<ClimbersLeague>();
+    public IList<ClimberLeagues> ClimbersLeagues { get; set; } = new List<ClimberLeagues>();
     public IList<CompetitionLeagueRanking> CompetitionLeagueRankings { get; set; } = new List<CompetitionLeagueRanking>();
     
     public IList<Favorite> Favorites { get; set; } = new List<Favorite>();

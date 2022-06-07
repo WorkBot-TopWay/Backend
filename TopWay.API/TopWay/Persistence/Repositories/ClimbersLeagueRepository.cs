@@ -11,7 +11,7 @@ public class ClimbersLeagueRepository: BaseRepository,IClimbersLeagueRepository
     {
     }
 
-    public async Task<IEnumerable<ClimbersLeague>> GetAll()
+    public async Task<IEnumerable<ClimberLeagues>> GetAll()
     {
         return await _context.ClimbersLeagues.ToListAsync();
     }
@@ -25,27 +25,27 @@ public class ClimbersLeagueRepository: BaseRepository,IClimbersLeagueRepository
 
     }
 
-    public async Task<ClimbersLeague> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId)
+    public async Task<ClimberLeagues> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId)
     {
         return (await _context.ClimbersLeagues
-            .Include(p=>p.ClimbingGym)
+            .Include(p=>p.ClimbingGyms)
             .Include(p=>p.Scaler)
             .Include(p=>p.League)
             .FirstOrDefaultAsync(p=>p.ClimbingGymId==climbingGymId && p.ScalerId==scalerId && p.LeagueId==leagueId))!;
     }
 
-    public async Task<ClimbersLeague> FindByIdAsync(int id)
+    public async Task<ClimberLeagues> FindByIdAsync(int id)
     {
        return (await _context.ClimbersLeagues.FindAsync(id))!;
     }
 
-    public async Task AddAsync(ClimbersLeague climbersLeague)
+    public async Task AddAsync(ClimberLeagues climberLeagues)
     {
-        await _context.ClimbersLeagues.AddAsync(climbersLeague);
+        await _context.ClimbersLeagues.AddAsync(climberLeagues);
     }
 
-    public void Delete(ClimbersLeague climbersLeague)
+    public void Delete(ClimberLeagues climberLeagues)
     {
-        _context.ClimbersLeagues.Remove(climbersLeague);
+        _context.ClimbersLeagues.Remove(climberLeagues);
     }
 }

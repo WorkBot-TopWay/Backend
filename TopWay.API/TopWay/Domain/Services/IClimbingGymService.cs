@@ -5,10 +5,10 @@ namespace TopWay.API.TopWay.Domain.Services;
 
 public interface IClimbingGymService
 {
-    Task<IEnumerable<ClimbingGym>> ListAsync();
-    Task<ClimbingGym> FindByIdAsync(int id);
-    Task<ClimbingGym> FindByNameAsync(string name);
-    Task<ClimbingGymResponse> SaveAsync(ClimbingGym climbingGym);
-    Task<ClimbingGymResponse> UpdateAsync(int id, ClimbingGym climbingGym);
+    Task<IEnumerable<ClimbingGyms>> ListAsync();
+    Task<ClimbingGyms> FindByIdAsync(int id);
+    Task<ClimbingGyms> FindByNameAsync(string name);
+    Task<ClimbingGymResponse> SaveAsync(ClimbingGyms climbingGyms);
+    Task<ClimbingGymResponse> UpdateAsync(int id, ClimbingGyms climbingGyms);
     Task<ClimbingGymResponse> DeleteAsync(int id);
 }

@@ -5,6 +5,7 @@ namespace TopWay.API.TopWay.Domain.Services;
 
 public interface INotificationService
 {
+    Task<IEnumerable<Notification>> FindAllAsync();
     Task<IEnumerable<Notification>> FindByScalerIdAsync(int scalerId);
     
     Task<Notification> FindByIdAsync(int id);

@@ -11,6 +11,11 @@ public class NotificationRepository: BaseRepository, INotificationRepository
     {
     }
 
+    public async Task<IEnumerable<Notification>> FindAllAsync()
+    {
+        return await _context.Notifications.ToListAsync();
+    }
+
     public async Task<IEnumerable<Notification>> FindByScalerIdAsync(int scalerId)
     {
         return await _context.Notifications

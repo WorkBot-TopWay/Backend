@@ -214,3 +214,4 @@ C:\UPC\2201\AplicacionesWeb\Backend-topway\Backend\TopWay.API\obj\Debug\net6.0\r
 C:\UPC\2201\AplicacionesWeb\Backend-topway\Backend\TopWay.API\obj\Debug\net6.0\TopWay.API.pdb
 C:\UPC\2201\AplicacionesWeb\Backend-topway\Backend\TopWay.API\obj\Debug\net6.0\TopWay.API.genruntimeconfig.cache
 C:\UPC\2201\AplicacionesWeb\Backend-topway\Backend\TopWay.API\obj\Debug\net6.0\ref\TopWay.API.dll
+C:\Users\Sho Lee\Documents\8vo ciclo UPC\Web\Backend\Backend\TopWay.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll

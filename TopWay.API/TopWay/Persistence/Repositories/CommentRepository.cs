@@ -11,42 +11,42 @@ public class CommentRepository: BaseRepository, ICommentRepository
     {
     }
 
-    public async Task<IEnumerable<Comment>> ListAsync()
+    public async Task<IEnumerable<Comments>> ListAsync()
     {
         return await _context.Comments.ToListAsync();
     }
 
-    public async Task<IEnumerable<Comment>> FindByClimbingGymIdAsync(int climbingGymId)
+    public async Task<IEnumerable<Comments>> FindByClimbingGymIdAsync(int climbingGymId)
     {
         return await _context.Comments
             .Where(c => c.ClimbingGymId == climbingGymId)
             .ToListAsync();
     }
 
-    public async Task<Comment> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId)
+    public async Task<Comments> FindByClimbingGymIdAndScalerIdAsync(int climbingGymId, int scalerId)
     {
         return (await _context.Comments
             .FirstOrDefaultAsync(c => c.ClimbingGymId == climbingGymId && c.ScalerId == scalerId))!;
     }
 
-    public async Task<Comment> FindByIdAsync(int id)
+    public async Task<Comments> FindByIdAsync(int id)
     {
         return (await _context.Comments.FindAsync(id))!;
     }
 
-    public async Task AddAsync(Comment comment)
+    public async Task AddAsync(Comments comments)
     {
-        await _context.Comments.AddAsync(comment);
+        await _context.Comments.AddAsync(comments);
     }
 
-    public void UpdateAsync(Comment comment)
+    public void UpdateAsync(Comments comments)
     {
-        _context.Comments.Update(comment);
+        _context.Comments.Update(comments);
     }
 
 
-    public void Delete(Comment comment)
+    public void Delete(Comments comments)
     {
-        _context.Comments.Remove(comment);
+        _context.Comments.Remove(comments);
     }
 }

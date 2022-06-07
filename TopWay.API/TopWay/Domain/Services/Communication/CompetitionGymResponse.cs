@@ -3,9 +3,9 @@ using TopWay.API.TopWay.Domain.Models;
 
 namespace TopWay.API.TopWay.Domain.Services.Communication;
 
-public class CompetitionGymResponse : BaseResponse<CompetitionGym>
+public class CompetitionGymResponse : BaseResponse<CompetitionGyms>
 {
-    public CompetitionGymResponse(CompetitionGym resource) : base(resource)
+    public CompetitionGymResponse(CompetitionGyms resource) : base(resource)
     {
     }
 

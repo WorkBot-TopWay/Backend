@@ -19,37 +19,37 @@ public class CompetitionGymService : ICompetitionGymService
         _climbingGymRepository = climbingGymRepository;
     }
 
-    public async Task<IEnumerable<CompetitionGym>> ListAsync()
+    public async Task<IEnumerable<CompetitionGyms>> ListAsync()
     {
         return await _competitionGymRepository.ListAsync();
     }
 
-    public async Task<IEnumerable<CompetitionGym>> FindByClimbingGymIdAsync(int climbingGymId)
+    public async Task<IEnumerable<CompetitionGyms>> FindByClimbingGymIdAsync(int climbingGymId)
     {
         return await _competitionGymRepository.FindByClimbingGymIdAsync(climbingGymId);
     }
 
-    public async Task<CompetitionGym> FindByIdAsync(int id)
+    public async Task<CompetitionGyms> FindByIdAsync(int id)
     {
         return await _competitionGymRepository.FindByIdAsync(id);
     }
 
-    public async Task<CompetitionGymResponse> SaveAsync(CompetitionGym competitionGym, int climbingGymId)
+    public async Task<CompetitionGymResponse> SaveAsync(CompetitionGyms competitionGyms, int climbingGymId)
     {
         var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
         if (existingClimbingGym == null)
         {
             return new CompetitionGymResponse("Climbing gym not found.");
         }
-        competitionGym.Date = DateTime.Now;
-        competitionGym.ClimbingGym = existingClimbingGym;
-        competitionGym.ClimberGymId = existingClimbingGym.Id;
+        competitionGyms.Date = DateTime.Now;
+        competitionGyms.ClimbingGyms = existingClimbingGym;
+        competitionGyms.ClimberGymId = existingClimbingGym.Id;
         try
         {
-            await _competitionGymRepository.AddAsync(competitionGym);
+            await _competitionGymRepository.AddAsync(competitionGyms);
             await _unitOfWork.CompleteAsync();
 
-            return new CompetitionGymResponse(competitionGym);
+            return new CompetitionGymResponse(competitionGyms);
         }
         catch (Exception ex)
         {
@@ -58,16 +58,16 @@ public class CompetitionGymService : ICompetitionGymService
         }
     }
 
-    public async Task<CompetitionGymResponse> UpdateAsync(int id, CompetitionGym competitionGym)
+    public async Task<CompetitionGymResponse> UpdateAsync(int id, CompetitionGyms competitionGyms)
     {
         var existingCompetitionGym = await _competitionGymRepository.FindByIdAsync(id);
 
         if (existingCompetitionGym == null)
             return new CompetitionGymResponse("Competition gym not found.");
 
-        existingCompetitionGym.Name = competitionGym.Name;
-        existingCompetitionGym.type = competitionGym.type;
-        existingCompetitionGym.Price = competitionGym.Price;
+        existingCompetitionGym.Name = competitionGyms.Name;
+        existingCompetitionGym.type = competitionGyms.type;
+        existingCompetitionGym.Price = competitionGyms.Price;
         try
         {
             _competitionGymRepository.Update(existingCompetitionGym);

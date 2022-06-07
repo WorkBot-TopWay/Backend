@@ -16,30 +16,30 @@ public class ClimbingGymService : IClimbingGymService
         _unitOfWork = unitOfWork;
     }
     
-    public async Task<IEnumerable<ClimbingGym>> ListAsync()
+    public async Task<IEnumerable<ClimbingGyms>> ListAsync()
     {
         return await _climbingGymRepository.ListAsync();
     }
 
-    public async Task<ClimbingGym> FindByIdAsync(int id)
+    public async Task<ClimbingGyms> FindByIdAsync(int id)
     {
         return await _climbingGymRepository.FindByIdAsync(id);
     }
 
-    public async Task<ClimbingGym> FindByNameAsync(string name)
+    public async Task<ClimbingGyms> FindByNameAsync(string name)
     {
         return await _climbingGymRepository.FindByNameAsync(name);
     }
 
-    public async Task<ClimbingGymResponse> SaveAsync(ClimbingGym climbingGym)
+    public async Task<ClimbingGymResponse> SaveAsync(ClimbingGyms climbingGyms)
     {
-        climbingGym.type = "ClimbingGym";
+        climbingGyms.type = "ClimbingGym";
         try
         {
-            await _climbingGymRepository.AddAsync(climbingGym);
+            await _climbingGymRepository.AddAsync(climbingGyms);
             await _unitOfWork.CompleteAsync();
 
-            return new ClimbingGymResponse(climbingGym);
+            return new ClimbingGymResponse(climbingGyms);
         }
         catch (Exception ex)
         {
@@ -47,20 +47,20 @@ public class ClimbingGymService : IClimbingGymService
         }
     }
 
-    public async Task<ClimbingGymResponse> UpdateAsync(int id, ClimbingGym climbingGym)
+    public async Task<ClimbingGymResponse> UpdateAsync(int id, ClimbingGyms climbingGyms)
     {
         var existingClimbingGym =await _climbingGymRepository.FindByIdAsync(id);
         if (existingClimbingGym == null)
             return new ClimbingGymResponse("Climbing gym not found.");
         
-        existingClimbingGym.Name = climbingGym.Name;
-        existingClimbingGym.Password = climbingGym.Password;
-        existingClimbingGym.Email = climbingGym.Email;
-        existingClimbingGym.City = climbingGym.City;
-        existingClimbingGym.District = climbingGym.District;
-        existingClimbingGym.Address = climbingGym.Address;
-        existingClimbingGym.Phone = climbingGym.Phone;
-        existingClimbingGym.LogoUrl = climbingGym.LogoUrl;
+        existingClimbingGym.Name = climbingGyms.Name;
+        existingClimbingGym.Password = climbingGyms.Password;
+        existingClimbingGym.Email = climbingGyms.Email;
+        existingClimbingGym.City = climbingGyms.City;
+        existingClimbingGym.District = climbingGyms.District;
+        existingClimbingGym.Address = climbingGyms.Address;
+        existingClimbingGym.Phone = climbingGyms.Phone;
+        existingClimbingGym.LogoUrl = climbingGyms.LogoUrl;
         
         try
         {

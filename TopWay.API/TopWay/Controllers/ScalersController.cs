@@ -1,5 +1,6 @@
 ﻿using System.Dynamic;
 using AutoMapper;
+using Swashbuckle.AspNetCore.Annotations;
 using TopWay.API.Shared.Extensions;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Services;
@@ -11,18 +12,24 @@ using Microsoft.AspNetCore.Mvc;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces("application/json")]
-public class ScalerController : ControllerBase
+[SwaggerTag(" Create, Read, Update and Delete a Scalers")]
+public class ScalersController : ControllerBase
 {
     private readonly IScalerService _scalerService;
     private readonly IMapper _mapper;
     
-    public ScalerController(IScalerService categoryService, IMapper mapper)
+    public ScalersController(IScalerService categoryService, IMapper mapper)
     {
         _scalerService = categoryService;
         _mapper = mapper;
     }
     
     [HttpGet]
+    [SwaggerOperation(
+        Summary = "Get all scalers",
+        Description = "Get all scalers",
+        OperationId = "GetAllScalers",
+        Tags = new[] { "Scalers" })]
     public async Task<IEnumerable<ScalerResource>> GetAllAsync()
     {
         var scalers = await _scalerService.ListAsync();
@@ -31,6 +38,11 @@ public class ScalerController : ControllerBase
     }
     
     [HttpGet("{id}")]
+    [SwaggerOperation(
+        Summary = "Get a scaler",
+        Description = "Get existing scaler",
+        OperationId = "GetScaler",
+        Tags = new[] { "Scalers" })]
     public async Task<IActionResult> GetAsync(int id)
     {
         var scaler = await _scalerService.FindByIdAsync(id);
@@ -42,6 +54,11 @@ public class ScalerController : ControllerBase
     }
     
     [HttpPost]
+    [SwaggerOperation(
+        Summary = "Create a scaler",
+        Description = "Create a new scaler",
+        OperationId = "CreateScaler",
+        Tags = new[] { "Scalers" })]
     public async Task<IActionResult> PostAsync([FromBody] SaveScalerResource resource)
     {
         if (!ModelState.IsValid)
@@ -58,6 +75,11 @@ public class ScalerController : ControllerBase
     }
     
     [HttpPut("{id}")]
+    [SwaggerOperation(
+        Summary = "Update a scaler",
+        Description = "Update an existing scaler",
+        OperationId = "UpdateScaler",
+        Tags = new[] { "Scalers" })]
     public async Task<IActionResult> PutAsync(int id, [FromBody] SaveScalerResource resource)
     {
         if (!ModelState.IsValid)
@@ -74,6 +96,11 @@ public class ScalerController : ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [SwaggerOperation(
+        Summary = "Delete a scaler",
+        Description = "Delete an existing scaler",
+        OperationId = "DeleteScaler",
+        Tags = new[] { "Scalers" })]
     public async Task<IActionResult> DeleteAsync(int id)
     {
         var result = await _scalerService.DeleteAsync(id);
