@@ -8,42 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/NewsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Models/News.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/INewsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/Communication/NewsResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/INewsServices.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/NewsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/NewsResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Resources/SaveNewsResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/NewsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_06_2022_15_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_06_2022_15_59__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_06_2022_16_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_06_2022_16_51__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/Debug/net6.0/TopWay.API.Tests.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/Debug/net6.0/TopWay.API.Tests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/Debug/net6.0/TopWay.API.Tests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/Debug/net6.0/TopWay.API.Tests.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/Debug/net6.0/TopWay.API.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/Debug/net6.0/TopWay.API.Tests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/TopWay.API.Tests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/TopWay.API.Tests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/TopWay.API.Tests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/TopWay.API.Tests.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.Tests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.Tests/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ModelToResourceProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ModelToResourceProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ResourceToModelProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Mapping/ResourceToModelProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Contexts/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Contexts/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/TopWay.API.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/TopWay.API.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/TopWay.API.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/TopWay.API.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,6 +86,7 @@
       <workItem from="1654571557910" duration="597000" />
       <workItem from="1654613814437" duration="3557000" />
       <workItem from="1654619416435" duration="984000" />
+      <workItem from="1654661731486" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>
