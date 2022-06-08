@@ -10,13 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/CompetitionReservationClimbersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/CompetitionReservationClimbersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

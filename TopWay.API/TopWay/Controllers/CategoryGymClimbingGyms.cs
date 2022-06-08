@@ -8,7 +8,7 @@ using TopWay.API.TopWay.Resources;
 namespace TopWay.API.TopWay.Controllers;
 
 [ApiController]
-[Route("/api/v1/category-gyms/{climbingGymId}/climbing-gyms")]
+[Route("/api/v1/category-gyms/{climbingGymId}/categories")]
 [Produces("application/json")]
 public class CategoryGymClimbingGyms: ControllerBase
 {
@@ -23,9 +23,9 @@ public class CategoryGymClimbingGyms: ControllerBase
     
     [HttpGet]
     [SwaggerOperation(
-        Summary = "Get all climbing gyms or find by climbing gym id",
-        Description = "Get all climbing gyms or find by climbing gym id",
-        OperationId = "GetClimbingGyms",
+        Summary = "Get all categories of a climbing gym",
+        Description = "Get all categories of a climbing gym",
+        OperationId = "GetCategoriesOfClimbingGym",
         Tags = new[] { "CategoryGyms" })]
     public async Task<IEnumerable<CategoriesResource>> GetCategoriesByGymId(int climbingGymId)
     {
