@@ -82,7 +82,7 @@ builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddCors();
 
 //Auto Mapper Configuration
 builder.Services.AddAutoMapper(
@@ -104,6 +104,13 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
     app.UseSwagger();
     app.UseSwaggerUI();
 //}
+
+// CORS
+app.UseCors(x => x
+    .SetIsOriginAllowed(origin => true)
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials());
 
 app.UseHttpsRedirection();
 
