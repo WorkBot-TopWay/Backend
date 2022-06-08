@@ -24,9 +24,9 @@ public class NewsService : INewsServices
         return await _newsRepository.ListAsync();
     }
 
-    public async Task<IEnumerable<News>> FindByClimbingGymIdAsync(int climbingGymId)
+    public async Task<IEnumerable<News>> FindByNewsIdAsync(int climbingGymId)
     {
-        return await _newsRepository.FindByClimbingGymIdAsync(climbingGymId);
+        return await _newsRepository.FindByNewsIdAsync(climbingGymId);
     }
 
     public async Task<News> FindByIdAsync(int id)
@@ -34,10 +34,10 @@ public class NewsService : INewsServices
         return await _newsRepository.FindByIdAsync(id);
     }
 
-    public async Task<NewsResponse> AddAsync(News news, int climbingGymId)
+    public async Task<NewsResponse> SaveAsync(News news, int climbingGymId)
     {
         var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
-        var existingNews = await _newsRepository.FindByClimbingGymIdAsync(climbingGymId);
+        var existingNews = await _newsRepository.FindByNewsIdAsync(climbingGymId);
 
         if (existingNews != null)
         {
@@ -67,7 +67,7 @@ public class NewsService : INewsServices
         }
     }
 
-    public async Task<NewsResponse> Update(News news, int id)
+    public async Task<NewsResponse> UpdateAsync(News news, int id)
     {
         var existingNews = await _newsRepository.FindByIdAsync(id);
         
@@ -80,7 +80,7 @@ public class NewsService : INewsServices
 
         try
         {
-            _newsRepository.UpdateAsync(existingNews);
+            _newsRepository.Update(existingNews);
             await _unitOfWork.CompleteAsync();
 
             return new NewsResponse(existingNews);
@@ -91,7 +91,7 @@ public class NewsService : INewsServices
         }
     }
 
-    public async Task<NewsResponse> Delete(int id)
+    public async Task<NewsResponse> DeleteAsync(int id)
     {
         var existingNews = await _newsRepository.FindByIdAsync(id);
         if (existingNews == null)

@@ -8,7 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="" />
+    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/NewsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/NewsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/INewsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/INewsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/INewsServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/INewsServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/NewsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/NewsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Services/NewsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/NewsService.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +94,8 @@
       <workItem from="1654613814437" duration="3557000" />
       <workItem from="1654619416435" duration="984000" />
       <workItem from="1654661731486" duration="268000" />
+      <workItem from="1654662563662" duration="193000" />
+      <workItem from="1654687270260" duration="2083000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>

@@ -16,7 +16,7 @@ public class NewsRepository : BaseRepository, INewsRepository
         return await _context.News.ToListAsync();
     }
 
-    public async Task<IEnumerable<News>> FindByClimbingGymIdAsync(int climbingGymId)
+    public async Task<IEnumerable<News>> FindByNewsIdAsync(int climbingGymId)
     {
         return await _context.News
             .Where(c => c.ClimbingGymId == climbingGymId)
@@ -33,7 +33,7 @@ public class NewsRepository : BaseRepository, INewsRepository
         await _context.News.AddAsync(news);
     }
 
-    public void UpdateAsync(News news)
+    public void Update(News news)
     {
         _context.News.Update(news);
     }
