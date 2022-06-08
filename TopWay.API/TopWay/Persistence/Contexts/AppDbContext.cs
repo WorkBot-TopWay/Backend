@@ -26,6 +26,8 @@ public class AppDbContext : DbContext
     public DbSet<Request> Requests { get; set; }
     
     public DbSet<ClimbersLeague> ClimbersLeagues { get; set; }
+    
+    public DbSet<News> News { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -356,6 +358,15 @@ public class AppDbContext : DbContext
             .WithMany(p=>p.ClimbersLeagues)
             .HasForeignKey(p=>p.ClimbingGymId);
 
+        //News Entity
+
+        builder.Entity<News>().ToTable("News");
+        builder.Entity<News>().HasKey(p => p.Id);
+        builder.Entity<News>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<News>().Property(p => p.Title).IsRequired().HasMaxLength(50);
+        builder.Entity<News>().Property(p => p.Description).IsRequired().HasMaxLength(500);
+        builder.Entity<News>().Property(p => p.Date).IsRequired();
+        builder.Entity<News>().Property(p => p.ImageUrl).IsRequired().HasMaxLength(100);
         // Apply Naming Conventions
 
         builder.UseSnakeCaseNamingConvention();
