@@ -9,7 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/ScalersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/ScalersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/IScalerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/IScalerRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/IScalerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/IScalerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/ScalerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/ScalerRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Services/ScalerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/ScalerService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +99,7 @@
       <workItem from="1654629575162" duration="688000" />
       <workItem from="1654708329483" duration="551000" />
       <workItem from="1654720012981" duration="4342000" />
+      <workItem from="1654783468708" duration="1052000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>

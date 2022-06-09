@@ -36,6 +36,10 @@ public class ScalersController : ControllerBase
         if (email != null && password != null)
         {
             var scaler = await _scalerService.FindByIdEmailAndPasswordAsync(email, password);
+            if (scaler == null)
+            {
+                return NotFound();
+            }
             var scalerResource = _mapper.Map<Scaler, ScalerResource>(scaler);
             return Ok(scalerResource);
         }
