@@ -49,14 +49,9 @@ public class ClimbersLeagueService: IClimbersLeagueService
        var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
        var existingLeague = await _leagueRepository.GetById(leagueId);
        var existingClimbersLeague = await _climbersLeagueRepository.FindByClimbingGymIdAndScalerIdAndLeagueId(climbingGymId, scalerId, leagueId);
-       var existingScalerInLeague = await _leagueRepository.FindByClimbingGymIdAndScalarId(climbingGymId, scalerId);
        if (existingClimbersLeague != null)
        {
            return new ClimbersLeagueResponse("ClimbersLeague already exists");
-       }
-       if (existingScalerInLeague != null)
-       {
-           return new ClimbersLeagueResponse("Scaler already exists in league");
        }
        if (existingScalers == null)
        {
