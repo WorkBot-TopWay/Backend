@@ -29,9 +29,9 @@ public class ClimberLeagueScalersController: ControllerBase
         Description = "Get all existing scalers in a league",
         OperationId = "GetAllClimbersInLeague",
         Tags = new[] { "ClimberLeagues" })]
-    public async Task<ActionResult<IEnumerable<Scaler>>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbinggymId)
+    public async Task<ActionResult<IEnumerable<Scaler>>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbingGymId)
     {
-        var climbersLeague = await _climbersLeagueService.FindScalersByLeagueAndClimbingGymId(leagueId, climbinggymId);
+        var climbersLeague = await _climbersLeagueService.FindScalersByLeagueAndClimbingGymId(leagueId, climbingGymId);
         if (climbersLeague == null)
             return NotFound();
         var resource = _mapper.Map<IEnumerable<Scaler>, IEnumerable<ScalerResource>>(climbersLeague);
