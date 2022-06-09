@@ -25,6 +25,12 @@ public class ScalerService : IScalerService
     {
         return await _scalerRepository.FindByIdAsync(id);
     }
+
+    public Task<Scaler> FindByIdEmailAndPasswordAsync(string email, string password)
+    {
+        return _scalerRepository.FindByIdEmailAndPasswordAsync(email, password);
+    }
+
     public async Task<ScalerResponse> SaveAsync(Scaler scaler)
     {
         scaler.Type= "Scaler";

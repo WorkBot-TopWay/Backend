@@ -26,15 +26,23 @@ public class ScalersController : ControllerBase
     
     [HttpGet]
     [SwaggerOperation(
-        Summary = "Get all scalers",
-        Description = "Get all scalers",
-        OperationId = "GetAllScalers",
+        Summary = "Get all scalers or a specific one by email and password",
+        Description = "Get all scalers or a specific one by email and password",
+        OperationId = "GetScalers",
         Tags = new[] { "Scalers" })]
-    public async Task<IEnumerable<ScalerResource>> GetAllAsync()
+    public async Task<IActionResult> GetAllAsync([FromQuery] string ?email=null,[FromQuery] string ?password=null)
+   
     {
+        if (email != null && password != null)
+        {
+            var scaler = await _scalerService.FindByIdEmailAndPasswordAsync(email, password);
+            var scalerResource = _mapper.Map<Scaler, ScalerResource>(scaler);
+            return Ok(scalerResource);
+        }
+
         var scalers = await _scalerService.ListAsync();
         var resources = _mapper.Map<IEnumerable<Scaler>, IEnumerable<ScalerResource>>(scalers);
-        return resources;
+        return Ok(resources);
     }
     
     [HttpGet("{id}")]
@@ -52,7 +60,7 @@ public class ScalersController : ControllerBase
         var resource = _mapper.Map<Scaler, ScalerResource>(scaler);
         return Ok(resource);
     }
-    
+
     [HttpPost]
     [SwaggerOperation(
         Summary = "Create a scaler",
