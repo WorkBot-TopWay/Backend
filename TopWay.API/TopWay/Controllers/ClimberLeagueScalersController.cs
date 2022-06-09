@@ -7,7 +7,7 @@ using TopWay.API.TopWay.Resources;
 
 namespace TopWay.API.TopWay.Controllers;
 [ApiController]
-[Route("/api/v1/climber-leagues/league/{leagueId}/climbing-gym/{climbinggymId}/scalers")]
+[Route("/api/v1/climber-leagues/league/{leagueId}/climbing-gym/{climbingGymId}/scalers")]
 [Produces("application/json")]
 public class ClimberLeagueScalersController: ControllerBase
 {
@@ -38,15 +38,4 @@ public class ClimberLeagueScalersController: ControllerBase
         return Ok(resource);
     }
     
-    /*
-       [HttpGet("FindScalersByLeagueAndClimbingGymId")]
-    public async Task<ActionResult<IEnumerable<Scaler>>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbingGymId)
-    {
-        var climbersLeague = await _climbersLeagueService.FindScalersByLeagueAndClimbingGymId(leagueId, climbingGymId);
-        if (climbersLeague == null)
-            return NotFound();
-        var resource = _mapper.Map<IEnumerable<Scaler>, IEnumerable<ScalerResource>>(climbersLeague);
-        return Ok(resource);
-    }
-     */
 }

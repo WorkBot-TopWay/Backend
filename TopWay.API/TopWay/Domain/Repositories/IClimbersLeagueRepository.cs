@@ -6,6 +6,7 @@ public interface IClimbersLeagueRepository
 {
     Task<IEnumerable<ClimberLeagues>> GetAll();
     Task<IEnumerable<Scaler>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbingGymId);
+    Task<IEnumerable<League>> FindLeaguesByClimbingGymIdAndScalerId(int climbingGymId, int scalerId);
     Task<ClimberLeagues> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId);
     Task<ClimberLeagues> FindByIdAsync(int id);
     Task AddAsync(ClimberLeagues climberLeagues);

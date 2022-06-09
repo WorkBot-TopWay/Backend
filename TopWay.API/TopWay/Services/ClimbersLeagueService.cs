@@ -33,6 +33,11 @@ public class ClimbersLeagueService: IClimbersLeagueService
         return await _climbersLeagueRepository.FindScalersByLeagueAndClimbingGymId(leagueId, climbingGymId);
     }
 
+    public async Task<IEnumerable<League>> FindLeaguesByClimbingGymIdAndScalerId(int climbingGymId, int scalerId)
+    {
+       return await _climbersLeagueRepository.FindLeaguesByClimbingGymIdAndScalerId(climbingGymId, scalerId);
+    }
+
     public async Task<ClimberLeagues> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId)
     {
         return await _climbersLeagueRepository.FindByClimbingGymIdAndScalerIdAndLeagueId(climbingGymId, scalerId, leagueId);
