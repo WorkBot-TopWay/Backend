@@ -76,7 +76,8 @@ public class LeagueService : ILeagueService
         if (existingLeague == null)
         {
             return new LeagueResponse("League not found.");
-        }   
+        } 
+        league.Id = existingLeague.Id;
         league.Name = league.Name;
         league.Description = league.Description;
         league.UrlLogo = league.UrlLogo;
