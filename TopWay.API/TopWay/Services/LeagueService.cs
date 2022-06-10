@@ -76,20 +76,13 @@ public class LeagueService : ILeagueService
         if (existingLeague == null)
         {
             return new LeagueResponse("League not found.");
-        } 
-        league.Id = existingLeague.Id;
-        league.Name = league.Name;
-        league.Description = league.Description;
-        league.UrlLogo = league.UrlLogo;
-        league.AdminName = existingLeague.AdminName;
-        league.NumberParticipants = existingLeague.NumberParticipants;
-        league.ScalerId = existingLeague.ScalerId;
-        league.ClimbingGymId = existingLeague.ClimbingGymId;
-        league.ClimbingGyms = existingLeague.ClimbingGyms;
-        league.Scaler = existingLeague.Scaler;
+        }
+        existingLeague.Name = league.Name;
+        existingLeague.Description = league.Description;
+        existingLeague.UrlLogo = league.UrlLogo;
         try
         {
-            _leagueRepository.Update(league);
+            _leagueRepository.Update(existingLeague);
             await _unitOfWork.CompleteAsync();
             return new LeagueResponse(league);
         }
