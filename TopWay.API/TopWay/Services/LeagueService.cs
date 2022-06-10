@@ -84,7 +84,7 @@ public class LeagueService : ILeagueService
         {
             _leagueRepository.Update(existingLeague);
             await _unitOfWork.CompleteAsync();
-            return new LeagueResponse(league);
+            return new LeagueResponse(existingLeague);
         }
         catch (Exception ex)
         {
