@@ -5,6 +5,7 @@ namespace TopWay.API.TopWay.Domain.Repositories;
 public interface IRequestRepository
 {
     Task<IEnumerable<Request>> GetAll();
+    Task<IEnumerable<Request>> FindByScalerId(int scalerId);
     
     Task<Request> FindLeagueIdAndScapeId(int leagueId, int scapeId);
     Task<IEnumerable<Scaler>> FindRequestScalerByLeagueId(int leagueId);

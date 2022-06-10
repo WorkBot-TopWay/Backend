@@ -16,6 +16,11 @@ public class RequestRepository: BaseRepository, IRequestRepository
         return await _context.Requests.ToListAsync();
     }
 
+    public async Task<IEnumerable<Request>> FindByScalerId(int scalerId)
+    {
+        return await _context.Requests.Where(r => r.ScalerId == scalerId).ToListAsync();
+    }
+
     public async Task<Request> FindLeagueIdAndScapeId(int leagueId, int scapeId)
     {
         return (await _context.Requests.FirstOrDefaultAsync(x => x.LeagueId == leagueId && x.ScalerId == scapeId))!;
