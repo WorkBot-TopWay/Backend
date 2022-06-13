@@ -19,6 +19,9 @@ public class ClimbingGyms
     public IList<Comments> Comments { get; set; } = new List<Comments>();
     public IList<League> Leagues { get; set; } = new List<League>();
     public IList<ClimberLeagues> ClimbersLeagues { get; set; } = new List<ClimberLeagues>();
-    
     public IList<Favorite> Favorites { get; set; } = new List<Favorite>();
+    public Features Features { get; set; }
+    public int FeaturesId { get; set; }
+    
+    public IList<News> News { get; set; } = new List<News>();
 }

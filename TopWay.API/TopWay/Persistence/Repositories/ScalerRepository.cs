@@ -25,8 +25,12 @@ public class ScalerRepository : BaseRepository, IScalerRepository
     {
         return (await _context.Scalers.FindAsync(id))!;
     }
-    
 
+    public async Task<Scaler> FindByIdEmailAndPasswordAsync(string email, string password)
+    {
+        return (await _context.Scalers.FirstOrDefaultAsync(s => s.Email == email && s.Password == password))!;
+    }
+    
     public void Update(Scaler category)
     {
        _context.Scalers.Update(category);

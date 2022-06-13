@@ -28,9 +28,14 @@ public class ClimbersLeagueService: IClimbersLeagueService
         return await _climbersLeagueRepository.GetAll();
     }
 
-    public async Task<IEnumerable<Scaler>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbingGymId)
+    public async Task<IEnumerable<Scaler>> FindScalersByLeagueId(int leagueId)
     {
-        return await _climbersLeagueRepository.FindScalersByLeagueAndClimbingGymId(leagueId, climbingGymId);
+        return await _climbersLeagueRepository.FindScalersByLeagueId(leagueId);
+    }
+    
+    public async Task<IEnumerable<League>> FindLeaguesByClimbingGymIdAndScalerId(int climbingGymId, int scalerId)
+    {
+       return await _climbersLeagueRepository.FindLeaguesByClimbingGymIdAndScalerId(climbingGymId, scalerId);
     }
 
     public async Task<ClimberLeagues> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId)
@@ -49,14 +54,9 @@ public class ClimbersLeagueService: IClimbersLeagueService
        var existingClimbingGym = await _climbingGymRepository.FindByIdAsync(climbingGymId);
        var existingLeague = await _leagueRepository.GetById(leagueId);
        var existingClimbersLeague = await _climbersLeagueRepository.FindByClimbingGymIdAndScalerIdAndLeagueId(climbingGymId, scalerId, leagueId);
-       var existingScalerInLeague = await _leagueRepository.FindByClimbingGymIdAndScalarId(climbingGymId, scalerId);
        if (existingClimbersLeague != null)
        {
            return new ClimbersLeagueResponse("ClimbersLeague already exists");
-       }
-       if (existingScalerInLeague != null)
-       {
-           return new ClimbersLeagueResponse("Scaler already exists in league");
        }
        if (existingScalers == null)
        {

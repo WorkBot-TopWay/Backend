@@ -81,19 +81,19 @@ public class LeaguesController: ControllerBase
         return Ok(leagueResource);
     }
     
-    [HttpPut]
+    [HttpPut("{id}")]
     [SwaggerOperation(
         Summary = "Update an existing league",
         Description = "Update an existing league",
         OperationId = "UpdateLeague",
         Tags = new[] { "Leagues" })]
-    public async Task<IActionResult> PutAsync([FromBody] SaveLeagueResource league, int leagueId)
+    public async Task<IActionResult> PutAsync([FromBody] SaveLeagueResource league, int id)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState.GetErrorMessages());
         
         var leagueResource = _mapper.Map<SaveLeagueResource, League>(league);
-        var result = await _leagueService.Update(leagueResource, leagueId);
+        var result = await _leagueService.Update(leagueResource, id);
 
         if (!result.Success)
             return BadRequest(result.Message);

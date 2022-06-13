@@ -25,7 +25,7 @@ public class RequestsController : ControllerBase
 
     [HttpGet]
     [SwaggerOperation(
-        Summary = "Get all requests and find by scaler id and league id",
+        Summary = "Get all requests or find by scaler id and league id or find by scaler id",
         Description = "Get all requests",
         OperationId = "GetAllRequests",
         Tags = new[] { "Requests" })]
@@ -41,7 +41,17 @@ public class RequestsController : ControllerBase
             var resource = _mapper.Map<Request, RequestResource>(request);
             return Ok(resource);
         }
-        
+
+        if (scalerId != null)
+        {
+            int idScaler = int.Parse(scalerId);
+            var request = await _requestService.FindByScalerId(idScaler);
+            if (request == null)
+                return NotFound();
+            var resource = _mapper.Map<IEnumerable<Request>, IEnumerable<RequestResource>>(request);
+            return Ok(resource);
+        }
+
         var requests = await _requestService.GetAll();
         var resources = _mapper.Map<IEnumerable<Request>, IEnumerable<RequestResource>>(requests);
         return Ok(resources);

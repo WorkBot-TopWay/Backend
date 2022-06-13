@@ -16,13 +16,21 @@ public class ClimbersLeagueRepository: BaseRepository,IClimbersLeagueRepository
         return await _context.ClimbersLeagues.ToListAsync();
     }
 
-    public async Task<IEnumerable<Scaler>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbingGymId)
+    public async Task<IEnumerable<Scaler>> FindScalersByLeagueId(int leagueId)
     {
         return await _context.Scalers
             .Include(p=>p.ClimbersLeagues)
-            .Where(p=>p.ClimbersLeagues.Any(l=>l.ClimbingGymId==climbingGymId && l.LeagueId==leagueId))
+            .Where(p=>p.ClimbersLeagues.Any(c=>c.LeagueId==leagueId))
             .ToListAsync();
 
+    }
+
+    public async Task<IEnumerable<League>> FindLeaguesByClimbingGymIdAndScalerId(int climbingGymId, int scalerId)
+    {
+        return await _context.Leagues
+            .Include(p=>p.ClimbersLeagues)
+            .Where(p=>p.ClimbersLeagues.Any(l=>l.ClimbingGymId==climbingGymId && l.ScalerId==scalerId))
+            .ToListAsync();
     }
 
     public async Task<ClimberLeagues> FindByClimbingGymIdAndScalerIdAndLeagueId(int climbingGymId, int scalerId, int leagueId)

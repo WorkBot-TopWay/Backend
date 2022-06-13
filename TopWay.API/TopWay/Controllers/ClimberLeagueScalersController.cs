@@ -7,7 +7,7 @@ using TopWay.API.TopWay.Resources;
 
 namespace TopWay.API.TopWay.Controllers;
 [ApiController]
-[Route("/api/v1/climber-leagues/league/{leagueId}/climbing-gym/{climbinggymId}/scalers")]
+[Route("/api/v1/climber-leagues/{leagueId}/scalers")]
 [Produces("application/json")]
 public class ClimberLeagueScalersController: ControllerBase
 {
@@ -29,24 +29,13 @@ public class ClimberLeagueScalersController: ControllerBase
         Description = "Get all existing scalers in a league",
         OperationId = "GetAllClimbersInLeague",
         Tags = new[] { "ClimberLeagues" })]
-    public async Task<ActionResult<IEnumerable<Scaler>>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbinggymId)
+    public async Task<ActionResult<IEnumerable<Scaler>>> FindScalersByLeagueId(int leagueId)
     {
-        var climbersLeague = await _climbersLeagueService.FindScalersByLeagueAndClimbingGymId(leagueId, climbinggymId);
+        var climbersLeague = await _climbersLeagueService.FindScalersByLeagueId(leagueId);
         if (climbersLeague == null)
             return NotFound();
         var resource = _mapper.Map<IEnumerable<Scaler>, IEnumerable<ScalerResource>>(climbersLeague);
         return Ok(resource);
     }
     
-    /*
-       [HttpGet("FindScalersByLeagueAndClimbingGymId")]
-    public async Task<ActionResult<IEnumerable<Scaler>>> FindScalersByLeagueAndClimbingGymId(int leagueId, int climbingGymId)
-    {
-        var climbersLeague = await _climbersLeagueService.FindScalersByLeagueAndClimbingGymId(leagueId, climbingGymId);
-        if (climbersLeague == null)
-            return NotFound();
-        var resource = _mapper.Map<IEnumerable<Scaler>, IEnumerable<ScalerResource>>(climbersLeague);
-        return Ok(resource);
-    }
-     */
 }

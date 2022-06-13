@@ -26,10 +26,10 @@ public class AppDbContext : DbContext
     public DbSet<Request> Requests { get; set; }
     public DbSet<ClimberLeagues> ClimbersLeagues { get; set; }
     public DbSet<CompetitionLeague> CompetitionLeagues { get; set; }
-    
     public DbSet<CompetitionLeagueRanking> CompetitionLeagueRankings { get; set; }
-    
     public DbSet<Favorite> Favorites { get; set; }
+    public DbSet<Features> Features { get; set; }
+    public DbSet<News> News { get; set; }
 
     // Structure of the database
     protected override void OnModelCreating(ModelBuilder builder)
@@ -138,6 +138,16 @@ public class AppDbContext : DbContext
             .HasMany(p=>p.ClimbersLeagues)
             .WithOne(p=>p.ClimbingGyms)
             .HasForeignKey(p=>p.ClimbingGymId);
+
+        builder.Entity<ClimbingGyms>()
+            .HasOne(p=>p.Features)
+            .WithOne()
+            .HasForeignKey<ClimbingGyms>(p=>p.FeaturesId);
+        
+        builder.Entity<ClimbingGyms>()
+            .HasMany(p=>p.News)
+            .WithOne(p=>p.ClimbingGyms)
+            .HasForeignKey(p=>p.ClimbingGymsId);
 
         // Notifications entity
         builder.Entity<Notification>().ToTable("Notifications");
@@ -430,6 +440,45 @@ public class AppDbContext : DbContext
             .WithMany(p=>p.Favorites)
             .HasForeignKey(p=>p.ScalerId);
         
+        // Features entity
+        builder.Entity<Features>().ToTable("Features");
+        builder.Entity<Features>().HasKey(p => p.Id);
+        builder.Entity<Features>().Property(p=>p.Type_climb).IsRequired().HasMaxLength(50);
+        builder.Entity<Features>().Property(p=>p.Office_hours_start).IsRequired();
+        builder.Entity<Features>().Property(p=>p.Office_hours_end).IsRequired();
+        builder.Entity<Features>().Property(p => p.Routes).IsRequired();
+        builder.Entity<Features>().Property(p=>p.Max_height).IsRequired();
+        builder.Entity<Features>().Property(p=>p.Rock_type).IsRequired().HasMaxLength(50);
+        builder.Entity<Features>().Property(p=>p.Bolting).IsRequired().HasMaxLength(50);
+        builder.Entity<Features>().Property(p=>p.price).IsRequired();
+        builder.Entity<Features>().Property(p=>p.ClimbingGymsId).IsRequired();
+        
+        // relationships
+
+        builder.Entity<Features>()
+            .HasOne(p => p.ClimbingGyms)
+            .WithOne(p => p.Features)
+            .HasForeignKey<Features>(p => p.ClimbingGymsId);
+        
+        // News entity
+        builder.Entity<News>().ToTable("News");
+        builder.Entity<News>().HasKey(p => p.Id);
+        builder.Entity<News>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<News>().Property(p => p.Title).IsRequired().HasMaxLength(100);
+        builder.Entity<News>().Property(p => p.Description).IsRequired().HasMaxLength(1000);
+        builder.Entity<News>().Property(p => p.Date).IsRequired();
+        builder.Entity<News>().Property(p => p.UrlImage).IsRequired().HasMaxLength(1000);
+        builder.Entity<News>().Property(p => p.ClimbingGymsId).IsRequired();
+        
+        
+        // relationships
+        
+        builder.Entity<News>()
+            .HasOne(p => p.ClimbingGyms)
+            .WithMany(p => p.News)
+            .HasForeignKey(p => p.ClimbingGymsId);
+
+
         // Apply Naming Conventions
 
         builder.UseSnakeCaseNamingConvention();

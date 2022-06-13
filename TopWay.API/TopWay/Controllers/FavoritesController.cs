@@ -83,13 +83,13 @@ public class FavoritesController: ControllerBase
         return Ok(favoriteResource);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
     [SwaggerOperation(
         Summary = "Update an existing favorite",
         Description = "Update an existing favorite",
         OperationId = "UpdateFavorite",
         Tags = new[] { "Favorites" })]
-    public async Task<IActionResult> PutAsync(int id, [FromBody] SaveFavoriteResource resource, int climbingGymId,
+    public async Task<IActionResult> PutAsync([FromBody] SaveFavoriteResource resource, int climbingGymId,
         int scalerId)
     {
         if (!ModelState.IsValid)
@@ -103,7 +103,7 @@ public class FavoritesController: ControllerBase
     }
 
 
-    [HttpDelete("{id}")]
+    [HttpDelete]
     [SwaggerOperation(
         Summary = "Delete an existing favorite",
         Description = "Delete an existing favorite",

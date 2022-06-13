@@ -77,8 +77,12 @@ builder.Services.AddScoped<ICompetitionLeagueRankingRepository, CompetitionLeagu
 builder.Services.AddScoped<ICompetitionLeagueRankingService, CompetitionLeagueRankingService>();
 builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
 builder.Services.AddScoped<IFavoriteService, FavoriteService>();
+builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
+builder.Services.AddScoped<IFeatureService, FeatureService>();
+builder.Services.AddScoped<INewsRepository, NewsRepository>();
+builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddCors();
 
 //Auto Mapper Configuration
 builder.Services.AddAutoMapper(
@@ -95,11 +99,18 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
 }
 
 // Run the application for Swagger
-if (app.Environment.IsDevelopment()) 
-{
+//if (app.Environment.IsDevelopment()) 
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
+
+// CORS
+app.UseCors(x => x
+    .SetIsOriginAllowed(origin => true)
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials());
 
 app.UseHttpsRedirection();
 

@@ -25,6 +25,11 @@ public class RequestService: IRequestService
         return await _requestRepository.GetAll();
     }
 
+    public async Task<IEnumerable<Request>> FindByScalerId(int scalerId)
+    {
+        return await _requestRepository.FindByScalerId(scalerId);
+    }
+
     public async Task<Request> FindLeagueIdAndScapeId(int leagueId, int scalerId)
     {
         return await _requestRepository.FindLeagueIdAndScapeId(leagueId, scalerId);

@@ -1,10 +1,11 @@
 ﻿namespace TopWay.API.TopWay.Resources;
 
-public class CommentResource
+public class NewsResource
 {
     public int Id { get; set; }
+    public string Title { get; set; }
     public string Description { get; set; }
-    public double Score { get; set; }
-    public int ScalerId { get; set; }
     public DateTime Date { get; set; }
+    public string UrlImage { get; set; }
+    public int ClimbingGymsId { get; set; }
 }

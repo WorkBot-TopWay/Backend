@@ -6,6 +6,7 @@ namespace TopWay.API.TopWay.Domain.Services;
 public interface IRequestService
 {
     Task<IEnumerable<Request>> GetAll();
+    Task<IEnumerable<Request>> FindByScalerId(int scalerId);
     Task<Request> FindLeagueIdAndScapeId(int leagueId, int scalerId);
     Task<IEnumerable<Scaler>> FindRequestScalerByLeagueId(int leagueId);
     Task<Request> FindByIdAsync(int id);
