@@ -1,7 +1,7 @@
-﻿using TopWay.API.TopWay.Domain.Repositories;
+﻿using TopWay.API.Shared.Domain.Repositories;
 using TopWay.API.TopWay.Persistence.Contexts;
 
-namespace TopWay.API.TopWay.Persistence.Repositories;
+namespace TopWay.API.Shared.Persistence.Repositories;
 
 public class UnitOfWork : IUnitOfWork
 {

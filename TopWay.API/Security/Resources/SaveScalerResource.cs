@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TopWay.API.TopWay.Resources;
+namespace TopWay.API.Security.Resources;
 
 public class SaveScalerResource
 {
@@ -12,9 +12,9 @@ public class SaveScalerResource
     [MaxLength(50)]
     public string LastName { get; set; }
     
-    [Required]
-    [MaxLength(150)]
-    public string Password { get; set; }
+    //[Required]
+    //[MaxLength(150)]
+    //public string Password { get; set; }
     
     [Required]
     [MaxLength(150)]

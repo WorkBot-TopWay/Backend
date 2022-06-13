@@ -1,5 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using TopWay.API.Security.Domain.Repositories;
+using TopWay.API.Security.Domain.Services;
+using TopWay.API.Security.Persistence.Repositories;
+using TopWay.API.Security.Services;
+using TopWay.API.Shared.Domain.Repositories;
+using TopWay.API.Shared.Persistence.Repositories;
 using TopWay.API.TopWay.Domain.Repositories;
 using TopWay.API.TopWay.Domain.Services;
 using TopWay.API.TopWay.Mapping;
@@ -86,8 +92,10 @@ builder.Services.AddCors();
 
 //Auto Mapper Configuration
 builder.Services.AddAutoMapper(
-    typeof(ModelToResourceProfile), 
-    typeof(ResourceToModelProfile));
+    typeof(TopWay.API.TopWay.Mapping.ModelToResourceProfile), 
+    typeof(TopWay.API.TopWay.Mapping.ResourceToModelProfile),
+    typeof(TopWay.API.Security.Mapping.ModelToResourceProfile), 
+    typeof(TopWay.API.Security.Mapping.ResourceToModelProfile));
 
 var app = builder.Build();
 

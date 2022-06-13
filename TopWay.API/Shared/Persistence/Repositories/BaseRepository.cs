@@ -1,6 +1,6 @@
 ﻿using TopWay.API.TopWay.Persistence.Contexts;
 
-namespace TopWay.API.TopWay.Persistence.Repositories;
+namespace TopWay.API.Shared.Persistence.Repositories;
 
 public class BaseRepository
 {

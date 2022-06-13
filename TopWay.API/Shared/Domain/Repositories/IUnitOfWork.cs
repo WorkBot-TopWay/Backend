@@ -1,4 +1,4 @@
-﻿namespace TopWay.API.TopWay.Domain.Repositories;
+﻿namespace TopWay.API.Shared.Domain.Repositories;
 
 public interface IUnitOfWork
 {

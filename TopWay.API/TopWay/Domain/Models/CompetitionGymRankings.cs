@@ -1,4 +1,6 @@
-﻿namespace TopWay.API.TopWay.Domain.Models;
+﻿using TopWay.API.Security.Domain.Models;
+
+namespace TopWay.API.TopWay.Domain.Models;
 
 public class CompetitionGymRankings
 {

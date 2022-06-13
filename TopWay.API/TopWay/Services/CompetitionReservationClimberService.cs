@@ -1,4 +1,7 @@
-﻿using TopWay.API.TopWay.Domain.Models;
+﻿using TopWay.API.Security.Domain.Models;
+using TopWay.API.Security.Domain.Repositories;
+using TopWay.API.Shared.Domain.Repositories;
+using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Repositories;
 using TopWay.API.TopWay.Domain.Services;
 using TopWay.API.TopWay.Domain.Services.Communication;

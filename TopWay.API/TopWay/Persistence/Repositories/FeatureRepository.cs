@@ -1,4 +1,5 @@
-﻿using TopWay.API.TopWay.Domain.Models;
+﻿using TopWay.API.Shared.Persistence.Repositories;
+using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Repositories;
 using TopWay.API.TopWay.Persistence.Contexts;
 

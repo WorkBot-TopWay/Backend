@@ -1,9 +1,14 @@
-﻿using TopWay.API.TopWay.Domain.Models;
+﻿using TopWay.API.Security.Domain.Models;
+using TopWay.API.Security.Domain.Repositories;
+using TopWay.API.Security.Domain.Services;
+using TopWay.API.Security.Domain.Services.Communication;
+using TopWay.API.Shared.Domain.Repositories;
+using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Repositories;
 using TopWay.API.TopWay.Domain.Services;
 using TopWay.API.TopWay.Domain.Services.Communication;
 
-namespace TopWay.API.TopWay.Services;
+namespace TopWay.API.Security.Services;
 
 public class ScalerService : IScalerService
 {
@@ -60,7 +65,7 @@ public class ScalerService : IScalerService
         existingScaler.Address = scaler.Address;
         existingScaler.City = scaler.City;
         existingScaler.District = scaler.District;
-        existingScaler.Password = scaler.Password;
+        existingScaler.PasswordHash = scaler.PasswordHash;
         existingScaler.UrlPhoto = scaler.UrlPhoto;
         
         try

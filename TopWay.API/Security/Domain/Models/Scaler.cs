@@ -1,11 +1,15 @@
-﻿namespace TopWay.API.TopWay.Domain.Models;
+﻿using System.Text.Json.Serialization;
+using TopWay.API.TopWay.Domain.Models;
+
+namespace TopWay.API.Security.Domain.Models;
 
 public class Scaler
 {
     public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string Password { get; set; }
+    [JsonIgnore] 
+    public string PasswordHash { get; set; }
     public string Email { get; set; }
     public string City { get; set; }
     public string District { get; set; }
@@ -21,6 +25,5 @@ public class Scaler
     public IList<Request> Requests { get; set; } = new List<Request>();
     public IList<ClimberLeagues> ClimbersLeagues { get; set; } = new List<ClimberLeagues>();
     public IList<CompetitionLeagueRanking> CompetitionLeagueRankings { get; set; } = new List<CompetitionLeagueRanking>();
-    
     public IList<Favorite> Favorites { get; set; } = new List<Favorite>();
 }

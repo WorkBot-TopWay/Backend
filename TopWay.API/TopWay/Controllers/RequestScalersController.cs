@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using TopWay.API.Security.Domain.Models;
+using TopWay.API.Security.Resources;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Services;
 using TopWay.API.TopWay.Resources;

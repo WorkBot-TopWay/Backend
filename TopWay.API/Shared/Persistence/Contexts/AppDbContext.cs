@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
+using TopWay.API.Security.Domain.Models;
 using TopWay.API.Shared.Extensions;
 using TopWay.API.TopWay.Domain.Models;
 
@@ -42,7 +42,7 @@ public class AppDbContext : DbContext
         builder.Entity<Scaler>().Property(p => p.FirstName).IsRequired().HasMaxLength(50);
         builder.Entity<Scaler>().Property(p => p.LastName).IsRequired().HasMaxLength(50);
         builder.Entity<Scaler>().Property(p => p.Email).IsRequired().HasMaxLength(150);
-        builder.Entity<Scaler>().Property(p => p.Password).IsRequired().HasMaxLength(150);
+       // builder.Entity<Scaler>().Property(p => p.PasswordHash).IsRequired().HasMaxLength(150);
         builder.Entity<Scaler>().Property(p => p.Phone).IsRequired().HasMaxLength(20);
         builder.Entity<Scaler>().Property(p => p.Address).IsRequired().HasMaxLength(250);
         builder.Entity<Scaler>().Property(p => p.City).IsRequired().HasMaxLength(50);

@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore.Metadata;
+using TopWay.API.Security.Domain.Models;
+using TopWay.API.Security.Resources;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Resources;
 
@@ -9,7 +11,7 @@ public class ResourceToModelProfile : Profile
 {
     public ResourceToModelProfile()
     {
-        CreateMap<SaveScalerResource, Scaler>();
+        //CreateMap<SaveScalerResource, Scaler>();
         CreateMap<SaveClimbingGymResource, ClimbingGyms>();
         CreateMap<SaveNotificationResource, Notification>();
         CreateMap<SaveCategoryResource, Categories>();

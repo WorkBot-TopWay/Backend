@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using TopWay.API.Security.Domain.Models;
+using TopWay.API.Security.Resources;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Resources;
 
@@ -8,7 +10,7 @@ public class ModelToResourceProfile : Profile
 {
     public ModelToResourceProfile()
     {
-        CreateMap<Scaler, ScalerResource>();
+       // CreateMap<Scaler, ScalerResource>();
         CreateMap<ClimbingGyms, ClimbingGymResource>();
         CreateMap<Notification, NotificationResource>();
         CreateMap<Categories, CategoriesResource>();

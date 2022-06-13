@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vErJknvfronEHkyjvxC5Z99tQcJdLeVE5m1wDlwKDP0Z3EabssVWEFWuyL18nKBRi0e0TdwJq8hLwFEy6ui46A==",
+  "dgSpecHash": "zsH3Fc9pVXvJmsfJQHSdq2Ak3ppHmYMorXjJHaHrmvzkR0hkv2lA8Uj3PF9NF9TfPshyr/CiCWCpZVqmQWwO+A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sho Lee\\Documents\\8vo ciclo UPC\\Web\\Backend\\Backend\\TopWay.API.Tests\\TopWay.API.Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Sho Lee\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\cucumber.messages\\6.0.1\\cucumber.messages.6.0.1.nupkg.sha512",
     "C:\\Users\\Sho Lee\\.nuget\\packages\\fluentassertions\\6.2.0\\fluentassertions.6.2.0.nupkg.sha512",

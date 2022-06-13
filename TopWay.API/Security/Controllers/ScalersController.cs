@@ -1,13 +1,15 @@
-﻿using System.Dynamic;
-using AutoMapper;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using TopWay.API.Security.Domain.Models;
+using TopWay.API.Security.Domain.Services;
+using TopWay.API.Security.Resources;
 using TopWay.API.Shared.Extensions;
 using TopWay.API.TopWay.Domain.Models;
 using TopWay.API.TopWay.Domain.Services;
 using TopWay.API.TopWay.Resources;
 
-namespace TopWay.API.TopWay.Controllers;
-using Microsoft.AspNetCore.Mvc;
+namespace TopWay.API.Security.Controllers;
 
 [ApiController]
 [Route("api/v1/[controller]")]
