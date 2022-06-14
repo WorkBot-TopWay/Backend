@@ -83,7 +83,10 @@ public class ScalerService : IScalerService
         {
             throw new AppExceptions($"User with email {request.Email} already exists");
         }
-        
+        if(request.Password==null || request.Password=="")
+        {
+            request.Password=user.PasswordHash;
+        }
         if(!string.IsNullOrEmpty(request.Password))
         {
             user.PasswordHash = BCryptNet.HashPassword(request.Password);
