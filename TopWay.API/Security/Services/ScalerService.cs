@@ -87,7 +87,7 @@ public class ScalerService : IScalerService
         {
             request.Password=user.PasswordHash;
         }
-        if(!string.IsNullOrEmpty(request.Password))
+        if(!string.IsNullOrEmpty(request.Password)&&request.Password!="")
         {
             user.PasswordHash = BCryptNet.HashPassword(request.Password);
         }

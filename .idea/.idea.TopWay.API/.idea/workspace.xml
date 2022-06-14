@@ -8,7 +8,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="" />
+    <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/Security/Controllers/ScalersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/Security/Controllers/ScalersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/Security/Services/ScalerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/Security/Services/ScalerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +111,8 @@
       <workItem from="1655089416442" duration="1481000" />
       <workItem from="1655128098085" duration="565000" />
       <workItem from="1655216774908" duration="11077000" />
-      <workItem from="1655240771507" duration="2385000" />
+      <workItem from="1655240771507" duration="3435000" />
+      <workItem from="1655246847716" duration="495000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>
