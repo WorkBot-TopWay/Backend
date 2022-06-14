@@ -44,10 +44,11 @@ public class JwtHandler: IJwtHandler
     {
         if (string.IsNullOrEmpty(token))
             return null;
+
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key =Encoding.ASCII.GetBytes(_appSettings.Secret);
+        var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
         
-        // Execute the token validation
+        // Execute Token Validation
         try
         {
             tokenHandler.ValidateToken(token, new TokenValidationParameters
@@ -56,11 +57,13 @@ public class JwtHandler: IJwtHandler
                 IssuerSigningKey = new SymmetricSecurityKey(key),
                 ValidateIssuer = false,
                 ValidateAudience = false,
-                // Expiration with 7 days
+                // Expiration with no delay
                 ClockSkew = TimeSpan.Zero
-            }, out SecurityToken validatedToken);
+            }, out var validatedToken);
             var jwtToken = (JwtSecurityToken)validatedToken;
-            var userId = int.Parse(jwtToken.Claims.First(c => c.Type == ClaimTypes.Sid).Value);
+            var userId = int.Parse(jwtToken.Claims.First(
+                claim => claim.Type == ClaimTypes.Sid).Value);
+
             return userId;
         }
         catch (Exception e)
@@ -69,5 +72,4 @@ public class JwtHandler: IJwtHandler
             return null;
         }
     }
-    
 }
