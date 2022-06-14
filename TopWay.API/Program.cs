@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using TopWay.API.Security.Authorization.Handlers.Implementations;
+using TopWay.API.Security.Authorization.Handlers.Interfaces;
+using TopWay.API.Security.Authorization.Middleware;
+using TopWay.API.Security.Authorization.Settings;
 using TopWay.API.Security.Domain.Repositories;
 using TopWay.API.Security.Domain.Services;
 using TopWay.API.Security.Persistence.Repositories;
@@ -27,6 +31,10 @@ builder.Services.AddDbContext<AppDbContext>(
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors());
 
+// AppSettings Configuration
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
 // OpenAPI Configuration
 builder.Services.AddSwaggerGen(options =>
 {
@@ -51,6 +59,12 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 //Dependency Injection Configuration
 
+//Shared injection configuration
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddCors();
+
+//TopWay injection configuration
 builder.Services.AddScoped<IScalerRepository, ScalerRepository>();
 builder.Services.AddScoped<IScalerService, ScalerService>();
 builder.Services.AddScoped<IClimbingGymRepository, ClimbingGymRepository>();
@@ -87,8 +101,10 @@ builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
 builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<INewsService, NewsService>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddCors();
+
+//Security injection configuration
+builder.Services.AddScoped<IJwtHandler, JwtHandler>();
+
 
 //Auto Mapper Configuration
 builder.Services.AddAutoMapper(
@@ -106,6 +122,7 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
     context!.Database.EnsureCreated();
 }
 
+
 // Run the application for Swagger
 //if (app.Environment.IsDevelopment()) 
 //{
@@ -113,12 +130,22 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
     app.UseSwaggerUI();
 //}
 
-// CORS
+// Configure CORS
 app.UseCors(x => x
     .SetIsOriginAllowed(origin => true)
     .AllowAnyMethod()
     .AllowAnyHeader()
     .AllowCredentials());
+
+// Configure Error Handler Middleware
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
+
+// Configure JWT Handling
+
+app.UseMiddleware<JwtMiddleware>();
+
+// Run the application
 
 app.UseHttpsRedirection();
 

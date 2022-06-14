@@ -23,8 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Security\Authorization\Handlers\Implementations" />
-      <Folder Include="Security\Authorization\Middleware" />
       <Folder Include="TopWay\Persistence\Contexts" />
     </ItemGroup>
 

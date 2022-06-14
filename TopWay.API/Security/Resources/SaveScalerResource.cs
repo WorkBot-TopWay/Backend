@@ -11,11 +11,7 @@ public class SaveScalerResource
     [Required]
     [MaxLength(50)]
     public string LastName { get; set; }
-    
-    //[Required]
-    //[MaxLength(150)]
-    //public string Password { get; set; }
-    
+
     [Required]
     [MaxLength(150)]
     public string Email { get; set; }
