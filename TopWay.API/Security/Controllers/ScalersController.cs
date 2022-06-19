@@ -49,6 +49,7 @@ public class ScalersController : ControllerBase
         var resources = _mapper.Map<IEnumerable<Scaler>, IEnumerable<ScalerResource>>(response);
         return Ok(resources);
     }
+    [AllowAnonymous]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
