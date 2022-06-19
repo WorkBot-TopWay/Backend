@@ -10,7 +10,7 @@ using TopWay.API.TopWay.Resources;
 namespace TopWay.API.TopWay.Controllers;
 
 [ApiController]
-[Route("/api/v1/competition-leagues/{competitiongymId}/scalers")]
+[Route("/api/v1/competition-reservation-climbers/{competitiongymId}/scalers")]
 [Produces("application/json")]
 public class CompetitionReservationClimberScalersController:ControllerBase
 {
