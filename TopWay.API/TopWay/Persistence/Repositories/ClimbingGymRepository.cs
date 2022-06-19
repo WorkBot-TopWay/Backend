@@ -27,6 +27,11 @@ public class ClimbingGymRepository : BaseRepository, IClimbingGymRepository
         return (await _context.ClimbingGyms.FindAsync(id))!;
     }
 
+    public async Task<ClimbingGyms> LogIn(string email, string password)
+    {
+        return (await _context.ClimbingGyms.FirstOrDefaultAsync(x => x.Email == email && x.Password == password))!;
+    }
+
     public async Task<ClimbingGyms> FindByNameAsync(string name)
     {
         return (await _context.ClimbingGyms

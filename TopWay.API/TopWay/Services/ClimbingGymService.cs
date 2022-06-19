@@ -27,6 +27,11 @@ public class ClimbingGymService : IClimbingGymService
         return await _climbingGymRepository.FindByIdAsync(id);
     }
 
+    public async Task<ClimbingGyms> LogIn(string email, string password)
+    {
+        return await _climbingGymRepository.LogIn(email, password);
+    }
+
     public async Task<ClimbingGyms> FindByNameAsync(string name)
     {
         return await _climbingGymRepository.FindByNameAsync(name);

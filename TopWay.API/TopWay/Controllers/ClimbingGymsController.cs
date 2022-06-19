@@ -64,7 +64,23 @@ public class ClimbingGymsController : ControllerBase
         var resource = _mapper.Map<ClimbingGyms, ClimbingGymResource>(climbingGym);
         return Ok(resource);
     }
-
+    [HttpGet("login")]
+    [SwaggerOperation(
+        Summary = "Get a specific Climbing Gym by login",
+        Description = "Get a existing Climbing Gym by login",
+        OperationId = "GetClimbingGymByLogin",
+        Tags = new[] { "ClimbingGyms" })]
+    public async Task<IActionResult> LogInAsync(string email, string password)
+    {
+        var climbingGym = await _climbingGymService.LogIn(email, password);
+        if (climbingGym == null)
+        {
+            return NotFound();
+        }
+        var resource = _mapper.Map<ClimbingGyms, ClimbingGymResource>(climbingGym);
+        return Ok(resource);
+    }
+    
     [HttpPost]
     [SwaggerResponse(200, "The operation was success", typeof(CategoriesResource))]
     [SwaggerResponse(400, "The operation was unsuccess")]
