@@ -11,5 +11,6 @@ public class AuthenticateResponse
     public string Address { get; set; }
     public string Phone { get; set; }
     public string UrlPhoto { get; set; }
+    public string type { get; set; }
     public string Token { get; set; }
 }

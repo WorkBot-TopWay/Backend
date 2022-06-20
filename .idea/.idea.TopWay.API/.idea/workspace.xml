@@ -10,18 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7762542c-bee5-4b73-b052-e69599ce6a40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopWay.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/ClimbingGymsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Controllers/ClimbingGymsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/IClimbingGymRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Repositories/IClimbingGymRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/IClimbingGymService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Domain/Services/IClimbingGymService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/ClimbingGymRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Persistence/Repositories/ClimbingGymRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/TopWay/Services/ClimbingGymService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/TopWay/Services/ClimbingGymService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopWay.API/Security/Domain/Services/Communication/AuthenticateResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/Security/Domain/Services/Communication/AuthenticateResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopWay.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/bin/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/TopWay.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/ref/TopWay.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/Debug/net6.0/refint/TopWay.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/TopWay.API/obj/staticwebassets.pack.sentinel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +113,7 @@
       <workItem from="1655313196601" duration="61000" />
       <workItem from="1655626362255" duration="657000" />
       <workItem from="1655649733108" duration="2261000" />
-      <workItem from="1655680473200" duration="636000" />
+      <workItem from="1655680473200" duration="3955000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Merge Develop to Images">
       <created>1654379822104</created>
