@@ -77,7 +77,7 @@ public class CategoryGymsController: ControllerBase
         return Ok(categoryGymResource);
     }
     
-    [HttpDelete("{id}")]
+    [HttpDelete]
     [SwaggerOperation(
         Summary = "Delete CategoryGym",
         Description = "Delete existing CategoryGym",
