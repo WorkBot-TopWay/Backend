@@ -89,7 +89,7 @@ public class CommentsController:ControllerBase
         return Ok(commentResource);
     }
     
-    [HttpPut("{id}")]
+    [HttpPut]
     [SwaggerOperation(
         Summary = "Update a comment",
         Description = "Update a existing comment",
@@ -107,7 +107,7 @@ public class CommentsController:ControllerBase
         return Ok(commentResource);
     }
     
-    [HttpDelete("{id}")]
+    [HttpDelete]
     [SwaggerOperation(
         Summary = "Delete a comment",
         Description = "Delete a existing comment",
