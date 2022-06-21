@@ -95,7 +95,7 @@ public class CommentsController:ControllerBase
         Description = "Update a existing comment",
         OperationId = "UpdateComment",
         Tags = new[] { "Comments" })]
-    public async Task<IActionResult> PutAsync(int id, [FromBody] SaveCommentResource resource, int climbingGymId, int scalerId)
+    public async Task<IActionResult> PutAsync([FromBody] SaveCommentResource resource, int climbingGymId, int scalerId)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState.GetErrorMessages());
