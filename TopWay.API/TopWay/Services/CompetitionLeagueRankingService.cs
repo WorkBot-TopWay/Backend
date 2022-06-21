@@ -94,6 +94,26 @@ public class CompetitionLeagueRankingService:ICompetitionLeagueRankingService
         }
     }
 
+    public async Task<CompetitionLeagueRankingResponse> Update(CompetitionLeagueRanking competitionLeagueRanking, int competitionLeagueId, int scalerId)
+    {
+        var existingCompetitionLeagueRanking = await _competitionLeagueRankingRepository.FindByCompetitionLeagueIdAndScalerIdAsync(competitionLeagueId, scalerId);
+        if (existingCompetitionLeagueRanking == null)
+        {
+            return new CompetitionLeagueRankingResponse("CompetitionLeagueRanking not found");
+        }
+        existingCompetitionLeagueRanking.Score = competitionLeagueRanking.Score;
+        try
+        {
+            _competitionLeagueRankingRepository.Update(existingCompetitionLeagueRanking);
+            await _unitOfWork.CompleteAsync();
+            return new CompetitionLeagueRankingResponse(existingCompetitionLeagueRanking);
+        }
+        catch (Exception ex)
+        {
+            return new CompetitionLeagueRankingResponse($"An error occurred when updating the CompetitionLeagueRanking: {ex.Message}");
+        }
+    }
+
     public async Task<CompetitionLeagueRankingResponse> Delete(int competitionLeagueId, int scalerId)
     {
         var existingCompetitionLeagueRanking = await _competitionLeagueRankingRepository.FindByCompetitionLeagueIdAndScalerIdAsync(competitionLeagueId, scalerId);

@@ -85,6 +85,28 @@ public class CompetitionGymRankingService: ICompetitionGymRankingService
 
     }
 
+    public async Task<CompetitionGymRankingResponse> UpdateAsync(CompetitionGymRankings competitionGymRankings,
+        int competitionId, int scalerId)
+    {
+        var existingCompetitionGymRanking =
+            await _competitionGymRankingRepository.FindByCompetitionIdAndScalerIdAsync(competitionId, scalerId);
+        if (existingCompetitionGymRanking == null)
+        {
+            return new CompetitionGymRankingResponse("CompetitionGymRanking not found");
+        }
+        existingCompetitionGymRanking.Score = competitionGymRankings.Score;
+        try
+        {
+            _competitionGymRankingRepository.Update(existingCompetitionGymRanking);
+            await _unitOfWork.CompleteAsync();
+            return new CompetitionGymRankingResponse(existingCompetitionGymRanking);
+        }
+        catch (Exception ex)
+        {
+            return new CompetitionGymRankingResponse($"An error occurred when updating the competitionGymRanking: {ex.Message}");
+        }
+    }
+
     public async Task<CompetitionGymRankingResponse> Delete(int competitionId, int scalerId)
     {
         var existingCompetitionGymRanking = await _competitionGymRankingRepository.FindByCompetitionIdAndScalerIdAsync(competitionId, scalerId);

@@ -12,5 +12,6 @@ public interface ICompetitionLeagueRankingService
     Task<CompetitionLeagueRanking> FindByCompetitionLeagueIdAndScalerIdAsync(int competitionLeagueId, int scalerId);
     Task<CompetitionLeagueRanking> FindByIdAsync(int id);
     Task<CompetitionLeagueRankingResponse> AddAsync(CompetitionLeagueRanking competitionLeagueRanking, int competitionLeagueId, int scalerId);
+    Task<CompetitionLeagueRankingResponse> Update(CompetitionLeagueRanking competitionLeagueRanking, int competitionLeagueId, int scalerId);
     Task<CompetitionLeagueRankingResponse>  Delete(int competitionLeagueId, int scalerId);
 }

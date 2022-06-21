@@ -12,5 +12,6 @@ public interface ICompetitionGymRankingService
     Task<CompetitionGymRankings> FindByCompetitionIdAndScalerIdAsync(int competitionId, int scalerId);
     Task<CompetitionGymRankings> FindByIdAsync(int id);
     Task<CompetitionGymRankingResponse> AddAsync(CompetitionGymRankings competitionGymRankings,int competitionId, int scalerId);
+    Task<CompetitionGymRankingResponse> UpdateAsync(CompetitionGymRankings competitionGymRankings, int competitionId, int scalerId);
     Task<CompetitionGymRankingResponse> Delete(int competitionId, int scalerId);
 }

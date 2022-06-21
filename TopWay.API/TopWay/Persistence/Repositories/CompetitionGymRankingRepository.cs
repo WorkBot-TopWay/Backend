@@ -50,6 +50,11 @@ public class CompetitionGymRankingRepository: BaseRepository, ICompetitionGymRan
         await _context.CompetitionGymRankings.AddAsync(competitionGymRankings);
     }
 
+    public void Update(CompetitionGymRankings competitionGymRankings)
+    {
+        _context.CompetitionGymRankings.Update(competitionGymRankings);
+    }
+
     public void Delete(CompetitionGymRankings competitionGymRankings)
     {
         _context.CompetitionGymRankings.Remove(competitionGymRankings);

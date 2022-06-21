@@ -52,6 +52,12 @@ public class CompetitionLeagueRankingRepository: BaseRepository, ICompetitionLea
         await _context.CompetitionLeagueRankings.AddAsync(competitionLeagueRanking);
     }
 
+    public void Update(CompetitionLeagueRanking competitionLeagueRanking)
+    {
+        _context.CompetitionLeagueRankings.Update(competitionLeagueRanking);
+    }
+
+
     public void Delete(CompetitionLeagueRanking competitionLeagueRanking)
     {
         _context.CompetitionLeagueRankings.Remove(competitionLeagueRanking);

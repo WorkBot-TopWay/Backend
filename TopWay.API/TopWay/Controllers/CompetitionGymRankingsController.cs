@@ -102,6 +102,28 @@ public class CompetitionGymRankingsController:ControllerBase
         return Ok(competitionGymRankingResource);
     }
     
+    [HttpPut]
+    [SwaggerOperation(
+        Summary = "Update competition gym ranking",
+        Description = "Update existing competition gym ranking",
+        OperationId = "UpdateCompetitionGymRanking",
+        Tags = new[] { "CompetitionGymRankings" })]
+    public async Task<ActionResult<CompetitionGymRankingResource>> PutAsync([FromBody] SaveCompetitionGymRankingResource resource, int comtempGymId, int scalerId)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState.GetErrorMessages());
+        }
+        var competitionGymRanking = _mapper.Map<SaveCompetitionGymRankingResource, CompetitionGymRankings>(resource);
+        var result = await _competitionGymRankingService.UpdateAsync(competitionGymRanking, comtempGymId, scalerId);
+        if (!result.Success)
+        {
+            return BadRequest(result.Message);
+        }
+        var competitionGymRankingResource = _mapper.Map<CompetitionGymRankings, CompetitionGymRankingResource>(result.Resource);
+        return Ok(competitionGymRankingResource);
+    }
+    
     [HttpDelete]
     [SwaggerOperation(
         Summary = "Delete competition gym ranking",
