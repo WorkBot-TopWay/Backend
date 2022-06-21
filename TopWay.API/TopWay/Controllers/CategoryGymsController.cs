@@ -9,7 +9,7 @@ using TopWay.API.TopWay.Resources;
 namespace TopWay.API.TopWay.Controllers;
 
 [ApiController]
-[Route("/api/v1/category-gyms")]
+[Route("/api/v1/climbing-gyms/categories")]
 [Produces("application/json")]
 [SwaggerTag(" Create, Read and Delete CategoryGyms")]
 public class CategoryGymsController: ControllerBase

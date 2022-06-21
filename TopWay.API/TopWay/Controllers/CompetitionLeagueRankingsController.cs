@@ -11,7 +11,7 @@ namespace TopWay.API.TopWay.Controllers;
 
 
 [ApiController]
-[Route("api/v1/[controller]")]
+[Route("api/v1/competition-league-rankings")]
 [Produces("application/json")]
 [SwaggerTag(" Create, Read and Update competition league rankings")]
 public class CompetitionLeagueRankingsController:ControllerBase

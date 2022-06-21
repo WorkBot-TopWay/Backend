@@ -8,7 +8,7 @@ using TopWay.API.TopWay.Resources;
 namespace TopWay.API.TopWay.Controllers;
 
 [ApiController]
-[Route("/api/v1/category-gyms/{climbingGymId}/categories")]
+[Route("/api/v1/climbing-gyms/categories/{climbingGymId}/categories")]
 [Produces("application/json")]
 public class CategoryGymClimbingGyms: ControllerBase
 {
